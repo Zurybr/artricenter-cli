@@ -159,6 +159,7 @@ a {
 }
 
 .site-navbar__link {
+  position: relative;
   text-decoration: none;
   color: var(--text);
   font-size: 0.95rem;
@@ -169,12 +170,27 @@ a {
   transition: background var(--motion-fast) ease, color var(--motion-fast) ease;
 }
 
+.site-navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: var(--nav-underline-height);
+  background: var(--nav-underline-color);
+  transition: width var(--nav-dropdown-transition) ease-out;
+}
+
 .site-navbar__link:hover,
 .site-navbar__link:focus-visible,
 .site-navbar__link.is-current {
   background: rgba(18, 74, 142, 0.11);
   color: var(--brand-blue);
   outline: none;
+}
+
+.site-navbar__link.is-current::after {
+  width: 100%;
 }
 
 .site-navbar__link:focus-visible,
