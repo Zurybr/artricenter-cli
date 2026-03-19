@@ -1,43 +1,216 @@
-# Astro Starter Kit: Minimal
+# Artricenter WordPress Development Environment
 
-```sh
-npm create astro@latest -- --template minimal
+Docker-based development environment for WordPress 6.9.4 with PHP 8.2-FPM, MySQL 8.0, Nginx, and WP-CLI.
+
+## Prerequisites
+
+- Docker (version 20.10 or later)
+- Docker Compose (version 2.0 or later)
+
+## Quick Start
+
+1. **Start all services:**
+   ```bash
+   docker compose up -d
+   ```
+
+2. **Wait for containers to start** (~30 seconds)
+
+3. **Visit WordPress setup:**
+   Open http://localhost:8080 in your browser
+
+4. **Complete WordPress installation:**
+   - Select language
+   - Site name: Artricenter
+   - Username/password (admin credentials)
+   - Email address
+   - Click "Install WordPress"
+
+## Architecture
+
+This environment includes 4 services:
+
+| Service | Container | Image | Purpose |
+|---------|-----------|-------|---------|
+| wordpress | artricenter_wp | wordpress:6.9.4-php8.2-fpm-alpine | WordPress core with PHP-FPM |
+| nginx | artricenter_nginx | nginx:alpine | Web server and reverse proxy |
+| db | artricenter_db | mysql:8.0 | MySQL database |
+| wpcli | artricenter_wpcli | wordpress:cli-php8.2 | WordPress CLI tool |
+
+**Network:** All services communicate via `artricenter_network`
+
+**Volumes:**
+- `db_data`: Persistent MySQL storage
+- `./wp-content`: Hot-reload development (see below)
+
+## WP-CLI Usage
+
+Run WP-CLI commands without entering the wpcli container:
+
+```bash
+# Check WordPress version
+docker compose exec wpcli wp core version
+
+# List plugins
+docker compose exec wpcli wp plugin list
+
+# Install a plugin
+docker compose exec wpcli wp plugin install akismet --activate
+
+# Clear cache
+docker compose exec wpcli wp cache flush
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Hot-Reload Development
 
-## 🚀 Project Structure
+Plugin files in `./wp-content/` sync immediately to the WordPress container:
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+# Create a custom plugin directory
+mkdir -p wp-content/plugins/artricenter-custom
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# Edit files locally
+nano wp-content/plugins/artricenter-custom/artricenter.php
+
+# Changes appear instantly in WordPress at http://localhost:8080
+# No container rebuild needed!
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**Note:** Theme and plugin development happens in `./wp-content/` on your host machine. The container reflects changes immediately via volume mounting.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Troubleshooting
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Check service status
+```bash
+docker compose ps
+```
 
-## 🧞 Commands
+All containers should show status "Up".
 
-All commands are run from the root of the project, from a terminal:
+### View logs
+```bash
+# All services
+docker compose logs
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# Specific service
+docker compose logs wordpress
+docker compose logs nginx
+docker compose logs db
+```
 
-## 👀 Want to learn more?
+### Restart services
+```bash
+docker compose restart
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Stop all services
+```bash
+docker compose down
+```
+
+### Remove everything (including database)
+```bash
+docker compose down -v
+```
+
+### WordPress not loading
+
+1. Check containers are running: `docker compose ps`
+2. Check nginx logs: `docker compose logs nginx`
+3. Wait longer for MySQL initialization (first start can take 60s)
+4. Try restarting: `docker compose restart`
+
+### Port 8080 already in use
+
+Edit `docker-compose.yml` and change the nginx port mapping:
+```yaml
+ports:
+  - "8081:80"  # Use 8081 instead of 8080
+```
+
+Then restart: `docker compose down && docker compose up -d`
+
+## Database Access
+
+**From host:** Port 3306 is not exposed by default. Use the wpcli container:
+
+```bash
+# Access MySQL via WP-CLI
+docker compose exec wpcli wp db query "SHOW TABLES;"
+```
+
+**To expose port 3306:** Add to db service in docker-compose.yml:
+```yaml
+ports:
+  - "3306:3306"
+```
+
+Then connect with:
+- Host: localhost
+- Port: 3306
+- User: wpuser
+- Password: wpsecret
+- Database: artricenter
+
+## Environment Variables
+
+Database credentials are configured in docker-compose.yml:
+
+| Variable | Value |
+|----------|-------|
+| MYSQL_DATABASE | artricenter |
+| MYSQL_USER | wpuser |
+| MYSQL_PASSWORD | wpsecret |
+| MYSQL_ROOT_PASSWORD | rootsecret |
+
+**Security:** These are development defaults. Change for production deployments.
+
+## PHP Configuration
+
+Custom PHP settings are mounted from `docker/php/uploads.ini`:
+
+- `upload_max_filesize`: 64M (media upload limit)
+- `post_max_size`: 64M (form submission limit)
+- `max_execution_time`: 300s (5 minutes)
+- `memory_limit`: 256M (WordPress minimum)
+
+To modify, edit `docker/php/uploads.ini` and restart:
+```bash
+docker compose restart wordpress
+```
+
+## Next Steps
+
+After WordPress installation:
+
+1. **Install essential plugins:**
+   ```bash
+   docker compose exec wpcli wp plugin install query-monitor --activate
+   docker compose exec wpcli wp plugin install wp-crontrol --activate
+   ```
+
+2. **Configure permalinks:**
+   - Settings → Permalinks → Post name
+   - Save changes
+
+3. **Start plugin development:**
+   ```bash
+   mkdir -p wp-content/plugins/artricenter-custom
+   cd wp-content/plugins/artricenter-custom
+   # Create your plugin here
+   ```
+
+4. **Enable debugging:**
+   Add to `wp-content/debug.log`:
+   ```php
+   define( 'WP_DEBUG', true );
+   define( 'WP_DEBUG_LOG', true );
+   define( 'WP_DEBUG_DISPLAY', false );
+   ```
+
+## Support
+
+For issues or questions:
+1. Check logs: `docker compose logs`
+2. Verify service status: `docker compose ps`
+3. Review WordPress Codex: https://developer.wordpress.org/
