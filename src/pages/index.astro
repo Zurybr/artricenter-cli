@@ -1,17 +1,62 @@
 ---
+import Layout from '@/layouts/Layout.astro';
+import ContentSection from '@/components/ContentSection.astro';
+import { navConfig } from '@/config/navigation';
 
+const quienesSomos = "Artricenter es un equipo enfocado en reumatologia integral, con atencion cercana para personas que necesitan recuperar movilidad, bienestar y confianza en su tratamiento.";
+
+const artricenter = "Nuestro centro reune evaluacion medica, seguimiento continuo y educacion para pacientes con dolor articular cronico o enfermedades reumaticas.";
+
+const historia = "Iniciamos con la mision de ofrecer una alternativa especializada y humana. Hoy acompanamos a cientos de familias en procesos de diagnostico temprano y control de sintomas.";
+
+const medicos = "Contamos con especialistas certificados y personal clinico capacitado para crear planes claros, personalizados y medibles para cada etapa del tratamiento.";
+
+const misionVisionValores = "Mision: mejorar calidad de vida. Vision: ser referencia nacional en manejo integral de enfermedades reumaticas. Valores: empatia, ciencia, transparencia y acompanamiento constante.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Quienes Somos | Artricenter"
+  description="Conoce al equipo de Artricenter, su historia y el enfoque de reumatologia integral para mejorar movilidad y calidad de vida."
+  currentPage="/"
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Quienes Somos</h1>
+
+    <ContentSection id="quienes-somos" title={quienesSomos}>
+      <p class="text-gray-700">{artricenter}</p>
+    </ContentSection>
+
+    <ContentSection id="nuestra-historia" title="Nuestra Historia">
+      <p class="text-gray-700">{historia}</p>
+    </ContentSection>
+
+    <ContentSection id="nuestros-medicos" title="Nuestros Medicos">
+      <p class="text-gray-700">{medicos}</p>
+    </ContentSection>
+
+    <ContentSection id="mision-vision-valores" title="Mision, Vision y Valores">
+      <p class="text-gray-700">{misionVisionValores}</p>
+    </ContentSection>
+
+    <section id="enlaces-relacionados" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
+      <ul class="space-y-2">
+        <li>
+          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
+            Enfermedades que tratamos
+          </a>
+        </li>
+        <li>
+          <a href="/tratamiento-medico-integral" class="text-blue-600 hover:text-blue-700">
+            Tratamiento y seguimiento
+          </a>
+        </li>
+        <li>
+          <a href="/contactanos" class="text-blue-600 hover:text-blue-700">
+            Agenda una valoracion
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>
