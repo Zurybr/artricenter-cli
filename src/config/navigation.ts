@@ -56,7 +56,7 @@ export const navItems: NavItem[] = [
     page: "/tratamiento-medico-integral",
     children: [
       { label: "Diagnóstico", page: "/tratamiento-medico-integral", hash: "#diagnostico" },
-      { label: "Paiper", page: "/tratamiento-medico-integral", hash: "#paiper" }
+      { label: "PAIPER", page: "/tratamiento-medico-integral", hash: "#paiper" }
     ]
   },
   {
