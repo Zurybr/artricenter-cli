@@ -21,9 +21,17 @@
   --shadow-soft: 0 10px 26px rgba(13, 45, 90, 0.09);
   --shadow-strong: 0 18px 46px rgba(13, 45, 90, 0.18);
   --nav-height: 4.4rem;
+  --logo-height: 8rem;
   --nav-z: 70;
   --motion-fast: 180ms;
+  --motion-medium: 280ms;
   --focus-ring: 0 0 0 3px rgba(14, 141, 111, 0.28);
+  --nav-dropdown-transition: 200ms ease-out;
+  --nav-drawer-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-underline-height: 2px;
+  --nav-underline-color: var(--brand-blue);
+  --nav-touch-target: 44px;
+  --nav-backdrop-blur: 8px;
 }
 
 * {
@@ -47,6 +55,28 @@ a {
   color: inherit;
 }
 
+/* Logo container above navbar */
+.site-logo-container {
+  width: min(1160px, calc(100% - 1.25rem));
+  margin: 0 auto;
+  padding: var(--space-4) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--motion-medium) ease, opacity var(--motion-medium) ease;
+}
+
+.site-logo-container.is-scrolled {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-logo-container__logo {
+  max-width: 200px;
+  height: auto;
+}
+
 [data-site-header] {
   position: sticky;
   top: 0;
@@ -61,6 +91,12 @@ a {
   background: rgba(255, 255, 255, 0.84);
   border-color: rgba(170, 184, 204, 0.6);
   box-shadow: 0 8px 24px rgba(18, 74, 142, 0.08);
+}
+
+/* Show logo in navbar when scrolled */
+[data-site-header].is-scrolled .site-navbar__brand-logo {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #site-navbar {
@@ -83,10 +119,19 @@ a {
 .site-navbar__brand {
   display: inline-flex;
   align-items: center;
-  max-width: 150px;
+  position: relative;
 }
 
-.site-navbar__brand img {
+.site-navbar__brand-logo {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity var(--motion-medium) ease, transform var(--motion-medium) ease;
+}
+
+.site-navbar__brand-logo img {
   width: 100%;
   height: auto;
   display: block;
@@ -143,40 +188,18 @@ a {
   outline: none;
 }
 
-.site-navbar__trigger {
-  border: none;
-  background: transparent;
-  color: var(--brand-blue);
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background var(--motion-fast) ease;
-}
-
-.site-navbar__trigger:hover,
-.site-navbar__trigger:focus-visible {
-  background: rgba(18, 74, 142, 0.11);
-  outline: none;
-}
-
-.site-navbar__trigger-icon {
-  font-size: 1rem;
-  transform: rotate(0deg);
-  transition: transform var(--motion-fast) ease;
-}
-
-.site-navbar__item.is-open .site-navbar__trigger-icon {
-  transform: rotate(45deg);
+/* Hover-based dropdown */
+.site-navbar__item:hover .site-navbar__dropdown,
+.site-navbar__item:focus-within .site-navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .site-navbar__dropdown {
   position: absolute;
   top: calc(100% + 0.45rem);
-  right: 0;
+  left: 0;
   min-width: 260px;
   max-width: 320px;
   background: var(--surface);
@@ -184,6 +207,10 @@ a {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   padding: var(--space-3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease, visibility var(--motion-fast) ease;
 }
 
 .site-navbar__dropdown-scroll {
@@ -210,6 +237,7 @@ a {
   padding: 0.55rem 0.6rem;
   font-size: 0.9rem;
   transition: background var(--motion-fast) ease, color var(--motion-fast) ease;
+  display: block;
 }
 
 .site-navbar__sublink:hover,
@@ -217,6 +245,11 @@ a {
   background: var(--surface-soft);
   color: var(--brand-blue);
   outline: none;
+}
+
+/* Hide trigger for hover-based dropdown */
+.site-navbar__trigger {
+  display: none;
 }
 
 .site-navbar__mobile-toggle {
@@ -411,11 +444,12 @@ p {
 }
 
 @media (min-width: 768px) {
+  .site-logo-container,
   #site-navbar {
     width: min(1160px, calc(100% - 2rem));
   }
 
-  .site-navbar__brand {
+  .site-navbar__brand-logo {
     max-width: 180px;
   }
 
