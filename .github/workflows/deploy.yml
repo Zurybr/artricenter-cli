@@ -29,18 +29,21 @@ jobs:
 
       - name: Fix paths for GitHub Pages
         run: |
-          find dist -name "*.html" -exec sed -i 's|src="/assets/|src="/artricenter-cli/assets/|g' {} \;
-          find dist -name "*.html" -exec sed -i 's|href="/assets/|href="/artricenter-cli/assets/|g' {} \;
-          find dist -name "*.html" -exec sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' {} \;
-          find dist -name "*.html" -exec sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' {} \;
-          find dist -name "*.html" -exec sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' {} \;
-          find dist -name "*.html" -exec sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' {} \;
+          # Fix image paths
+          find dist -name "*.html" -exec sed -i 's|src="/assets/|src="/artricenter-cli/assets/|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/assets/|href="/artricenter-cli/assets/|g' {} +
+
+          # Fix navigation paths
+          sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' dist/**/*.html
+          sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' dist/**/*.html
+          sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' dist/**/*.html
+          sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' dist/**/*.html
 
       - name: Verify fixes
         run: |
-          echo "Checking fixed paths..."
-          grep 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ especialidades paths fixed"
-          grep 'src="/artricenter-cli/assets/' dist/index.html && echo "✓ asset paths fixed"
+          echo "Checking fixed paths in all HTML files..."
+          find dist -name "*.html" -exec grep -q 'src="/artricenter-cli/assets/' {} \; && echo "✓ Asset paths fixed in all files"
+          grep -q 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ Navigation paths fixed in index.html"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
