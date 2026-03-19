@@ -1,216 +1,171 @@
-# Artricenter WordPress Development Environment
+# Artricenter - Sitio Web Institucional
 
-Docker-based development environment for WordPress 6.9.4 with PHP 8.2-FPM, MySQL 8.0, Nginx, and WP-CLI.
+Sitio web estático para Artricenter, clínica especializada en el diagnóstico y tratamiento de enfermedades reumáticas.
 
-## Prerequisites
+## 🌐 Sitio en Producción
 
-- Docker (version 20.10 or later)
-- Docker Compose (version 2.0 or later)
+- **GitHub Pages**: https://zurybr.github.io/artricenter-cli/
+- **Dominio**: https://artricenter.com (próximamente)
 
-## Quick Start
+## 🚀 Tecnologías
 
-1. **Start all services:**
-   ```bash
-   docker compose up -d
-   ```
+- **Framework**: Astro 6.0.7
+- **Estilado**: Tailwind CSS
+- **Despliegue**: GitHub Pages
+- **Node.js**: v22
 
-2. **Wait for containers to start** (~30 seconds)
+## 📋 Contenido
 
-3. **Visit WordPress setup:**
-   Open http://localhost:8080 in your browser
+El sitio incluye información sobre:
 
-4. **Complete WordPress installation:**
-   - Select language
-   - Site name: Artricenter
-   - Username/password (admin credentials)
-   - Email address
-   - Click "Install WordPress"
+- **Quiénes Somos**: Historia, equipo médico y valores
+- **Especialidades**:
+  - Artrosis / Osteoartrosis
+  - Artritis Reumatoide
+  - Fibromialgia
+  - Espondilitis Anquilosante
+  - Reumatismos de Partes Blandas
+- **Tratamiento Médico Integral**: PAIPER
+- **Club Vida y Salud**: Programas de bienestar
+- **Contacto**: Información de ubicación y contacto
 
-## Architecture
+## 🏥 Sucursales
 
-This environment includes 4 services:
+- **La Raza**: Calzada Vallejo 233, GAM, CDMX
+- **Atizapán**: Blvd. Adolfo López Mateos 65, Edo. Méx
+- **Viaducto**: Viaducto Río de la Piedad 130, Venustiano Carranza, CDMX
 
-| Service | Container | Image | Purpose |
-|---------|-----------|-------|---------|
-| wordpress | artricenter_wp | wordpress:6.9.4-php8.2-fpm-alpine | WordPress core with PHP-FPM |
-| nginx | artricenter_nginx | nginx:alpine | Web server and reverse proxy |
-| db | artricenter_db | mysql:8.0 | MySQL database |
-| wpcli | artricenter_wpcli | wordpress:cli-php8.2 | WordPress CLI tool |
+## 🛠️ Desarrollo
 
-**Network:** All services communicate via `artricenter_network`
+### Requisitos Previos
 
-**Volumes:**
-- `db_data`: Persistent MySQL storage
-- `./wp-content`: Hot-reload development (see below)
+- Node.js v22 o superior
+- npm
 
-## WP-CLI Usage
-
-Run WP-CLI commands without entering the wpcli container:
+### Instalación
 
 ```bash
-# Check WordPress version
-docker compose exec wpcli wp core version
+# Instalar dependencias
+npm install
 
-# List plugins
-docker compose exec wpcli wp plugin list
-
-# Install a plugin
-docker compose exec wpcli wp plugin install akismet --activate
-
-# Clear cache
-docker compose exec wpcli wp cache flush
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-## Hot-Reload Development
+El sitio estará disponible en http://localhost:4321
 
-Plugin files in `./wp-content/` sync immediately to the WordPress container:
+### Construcción para Producción
 
 ```bash
-# Create a custom plugin directory
-mkdir -p wp-content/plugins/artricenter-custom
-
-# Edit files locally
-nano wp-content/plugins/artricenter-custom/artricenter.php
-
-# Changes appear instantly in WordPress at http://localhost:8080
-# No container rebuild needed!
+# Construir sitio estático
+npm run build
 ```
 
-**Note:** Theme and plugin development happens in `./wp-content/` on your host machine. The container reflects changes immediately via volume mounting.
+Los archivos construidos se generan en la carpeta `dist/`
 
-## Troubleshooting
+## 📦 Despliegue
 
-### Check service status
-```bash
-docker compose ps
+El sitio se despliega automáticamente a GitHub Pages cuando se hace push a la rama `main`.
+
+### Flujo de Despliegue
+
+1. Hacer push de cambios a `main`
+2. GitHub Actions construye el proyecto con Node.js v22
+3. Se corrigen los paths para GitHub Pages (`/artricenter-cli/`)
+4. Se despliega a la rama `gh-pages`
+5. GitHub Pages publica el sitio automáticamente
+
+## 🎨 Características Técnicas
+
+- **Mobile-first design**: Navegación responsive optimizada para móviles
+- **Menú hamburguesa**: Panel deslizante en dispositivos móviles
+- **Sticky header**: Header fijo con navegación siempre visible
+- **Sticky buttons**: Botones flotantes para contacto WhatsApp
+- **Scroll-mt-20**: Compensación de scroll para header sticky
+- **SEO optimizado**: Meta tags, Open Graph, Twitter Cards
+- **Accesibilidad**: Navegación por teclado, ARIA labels
+- **Performance**: Imágenes optimizadas (.avif), CSS crítico inline
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── Header.astro       # Header con navegación responsive
+│   ├── Navigation.astro   # Navegación desktop
+│   └── Footer.astro       # Footer con sucursales
+├── layouts/
+│   └── Layout.astro        # Layout principal
+├── pages/
+│   ├── index.astro                      # Página principal
+│   ├── especialidades.astro             # Especialidades
+│   ├── tratamiento-medico-integral.astro # Tratamiento PAIPER
+│   ├── club-vida-y-salud.astro         # Club Vida y Salud
+│   └── contactanos.astro                # Contacto
+└── config/
+    └── navigation.ts      # Configuración de navegación
 ```
 
-All containers should show status "Up".
+## 🔧 Configuración
 
-### View logs
-```bash
-# All services
-docker compose logs
+### Base Path
 
-# Specific service
-docker compose logs wordpress
-docker compose logs nginx
-docker compose logs db
-```
+El sitio usa `/artricenter-cli/` como base path para GitHub Pages. En local el desarrollo usa `/`.
 
-### Restart services
-```bash
-docker compose restart
-```
+### Assets
 
-### Stop all services
-```bash
-docker compose down
-```
+- Imágenes en `public/assets/` se copian a la raíz del build
+- Astro procesa automáticamente los paths durante el build
 
-### Remove everything (including database)
-```bash
-docker compose down -v
-```
+## 📱 Navegación
 
-### WordPress not loading
+El sitio tiene navegación jerárquica:
 
-1. Check containers are running: `docker compose ps`
-2. Check nginx logs: `docker compose logs nginx`
-3. Wait longer for MySQL initialization (first start can take 60s)
-4. Try restarting: `docker compose restart`
+- **Quienes Somos**
+  - Artricenter
+  - Nuestra Historia
+  - Nuestros Médicos
+  - Misión | Visión | Valores
 
-### Port 8080 already in use
+- **Especialidades**
+  - Artrosis / Osteoartrosis
+  - Artritis Reumatoide
+  - Fibromialgia
+  - Espondilitis Anquilosante
+  - Reumatismos de Partes Blandas
 
-Edit `docker-compose.yml` and change the nginx port mapping:
-```yaml
-ports:
-  - "8081:80"  # Use 8081 instead of 8080
-```
+- **Tratamiento Médico Integral**
+  - Diagnóstico
+  - PAIPER
 
-Then restart: `docker compose down && docker compose up -d`
+- **Club Vida y Salud**
+  - Club Vida y Salud
+  - Testimonios
 
-## Database Access
+- **Contáctanos**
+  - Blog
+  - Contáctanos
 
-**From host:** Port 3306 is not exposed by default. Use the wpcli container:
+## 🐛 Troubleshooting
 
-```bash
-# Access MySQL via WP-CLI
-docker compose exec wpcli wp db query "SHOW TABLES;"
-```
+### El sitio no se ve en GitHub Pages
 
-**To expose port 3306:** Add to db service in docker-compose.yml:
-```yaml
-ports:
-  - "3306:3306"
-```
+1. Verificar que el workflow terminó exitosamente en Actions
+2. Esperar 2-5 minutos para que GitHub Pages actualice
+3. Limpiar caché del navegador (Ctrl+F5 o Cmd+Shift+R)
 
-Then connect with:
-- Host: localhost
-- Port: 3306
-- User: wpuser
-- Password: wpsecret
-- Database: artricenter
+### Las imágenes no cargan
 
-## Environment Variables
+Verificar que los paths en los HTML incluyan `/artricenter-cli/assets/`
 
-Database credentials are configured in docker-compose.yml:
+### La navegación no funciona
 
-| Variable | Value |
-|----------|-------|
-| MYSQL_DATABASE | artricenter |
-| MYSQL_USER | wpuser |
-| MYSQL_PASSWORD | wpsecret |
-| MYSQL_ROOT_PASSWORD | rootsecret |
+Verificar que los href incluyan `/artricenter-cli/` para páginas internas
 
-**Security:** These are development defaults. Change for production deployments.
+## 📄 Licencia
 
-## PHP Configuration
+Este proyecto es propiedad de Artricenter. Todos los derechos reservados.
 
-Custom PHP settings are mounted from `docker/php/uploads.ini`:
+## 👨‍💻 Desarrollo
 
-- `upload_max_filesize`: 64M (media upload limit)
-- `post_max_size`: 64M (form submission limit)
-- `max_execution_time`: 300s (5 minutes)
-- `memory_limit`: 256M (WordPress minimum)
-
-To modify, edit `docker/php/uploads.ini` and restart:
-```bash
-docker compose restart wordpress
-```
-
-## Next Steps
-
-After WordPress installation:
-
-1. **Install essential plugins:**
-   ```bash
-   docker compose exec wpcli wp plugin install query-monitor --activate
-   docker compose exec wpcli wp plugin install wp-crontrol --activate
-   ```
-
-2. **Configure permalinks:**
-   - Settings → Permalinks → Post name
-   - Save changes
-
-3. **Start plugin development:**
-   ```bash
-   mkdir -p wp-content/plugins/artricenter-custom
-   cd wp-content/plugins/artricenter-custom
-   # Create your plugin here
-   ```
-
-4. **Enable debugging:**
-   Add to `wp-content/debug.log`:
-   ```php
-   define( 'WP_DEBUG', true );
-   define( 'WP_DEBUG_LOG', true );
-   define( 'WP_DEBUG_DISPLAY', false );
-   ```
-
-## Support
-
-For issues or questions:
-1. Check logs: `docker compose logs`
-2. Verify service status: `docker compose ps`
-3. Review WordPress Codex: https://developer.wordpress.org/
+Desarrollado con ❤️ usando Astro y Tailwind CSS.
