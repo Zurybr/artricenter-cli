@@ -56,10 +56,73 @@ class Artricenter_Structure_Plugin {
 
 	/**
 	 * Initialize the plugin.
+	 *
+	 * @since 1.0.0
 	 */
-	public function run() {
+	public function run(): void {
+		// Register navigation menus.
+		$navigation = new \Artricenter\Structure\Navigation();
+		$navigation->register_menus();
+
+		// Register custom hooks.
+		$hooks = new \Artricenter\Structure\Hooks();
+		$hooks->register_hooks();
+
+		// Enqueue assets.
+		$this->enqueue_assets();
+
 		// Load template tags.
 		require_once plugin_dir_path( __FILE__ ) . 'templates/template-tags.php';
+	}
+
+	/**
+	 * Enqueue plugin assets.
+	 *
+	 * @since 1.0.0
+	 */
+	private function enqueue_assets(): void {
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueue plugin stylesheets.
+	 *
+	 * @since 1.0.0
+	 */
+	public function enqueue_styles(): void {
+		// Enqueue variables first.
+		wp_enqueue_style(
+			'artricenter-structure-variables',
+			plugins_url( 'assets/css/variables.css', __FILE__ ),
+			array(),
+			'1.0.0',
+			'all'
+		);
+
+		// Enqueue main styles (depends on variables).
+		wp_enqueue_style(
+			'artricenter-structure-style',
+			plugins_url( 'assets/css/main.css', __FILE__ ),
+			array( 'artricenter-structure-variables' ),
+			'1.0.0',
+			'all'
+		);
+	}
+
+	/**
+	 * Enqueue plugin scripts.
+	 *
+	 * @since 1.0.0
+	 */
+	public function enqueue_scripts(): void {
+		wp_enqueue_script(
+			'artricenter-mobile-menu',
+			plugins_url( 'assets/js/mobile-menu.js', __FILE__ ),
+			array(),
+			'1.0.0',
+			true
+		);
 	}
 }
 
