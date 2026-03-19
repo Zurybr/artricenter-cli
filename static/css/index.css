@@ -287,14 +287,18 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(10, 22, 40, 0.48);
+  backdrop-filter: blur(var(--nav-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--nav-backdrop-blur));
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--motion-fast) ease;
+  transform: translateX(100%);
+  transition: opacity var(--motion-fast) ease, transform var(--motion-fast) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-navbar.mobile-menu-open .site-navbar__drawer {
   opacity: 1;
   pointer-events: auto;
+  transform: translateX(0);
 }
 
 .site-navbar__drawer-nav {
