@@ -10,29 +10,34 @@ interface Props {
 const { navItems, currentPage } = Astro.props;
 ---
 
+<!-- Logo grande centrado - NO sticky -->
+<div class="bg-gradient-to-r from-blue-50 to-white border-b border-gray-100">
+  <div class="flex justify-center py-6">
+    <a
+      href="/"
+      class="flex items-center justify-center"
+      aria-label="Ir a la página principal de Artricenter"
+    >
+      <img
+        src="/assets/logo.png"
+        alt="Artricenter"
+        class="h-40 w-auto"
+      />
+    </a>
+  </div>
+</div>
+
+<!-- Navegación centrada - STICKY -->
 <header class="bg-white border-b border-gray-200 sticky top-0 z-40">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a
-        href="/"
-        class="flex items-center space-x-2"
-        aria-label="Ir a la página principal de Artricenter"
-      >
-        <img
-          src="/assets/logo.png"
-          alt="Artricenter"
-          class="h-10 w-auto"
-        />
-      </a>
-
+    <div class="flex items-center justify-center h-14 relative">
       <!-- Desktop Navigation -->
       <Navigation items={navItems} currentPage={currentPage} />
 
-      <!-- Mobile Menu Toggle -->
+      <!-- Mobile Menu Toggle - posicionado a la derecha -->
       <button
         type="button"
-        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+        class="lg:hidden absolute right-0 inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
         aria-expanded="false"
         data-mobile-toggle
         aria-label="Abrir menú"
@@ -66,14 +71,19 @@ const { navItems, currentPage } = Astro.props;
 
           {item.children && item.children.length > 0 && (
             <div class="mt-1 ml-4 space-y-1">
-              {item.children.map(child => (
-                <a
-                  href={child.page + (child.hash || '')}
-                  class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-                >
-                  {child.label}
-                </a>
-              ))}
+              {item.children.map(child => {
+                const isExternal = child.page.startsWith('http://') || child.page.startsWith('https://');
+                return (
+                  <a
+                    href={isExternal ? child.page : child.page + (child.hash || '')}
+                    class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                  >
+                    {child.label}
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>

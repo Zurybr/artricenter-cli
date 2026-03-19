@@ -64,6 +64,79 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <Footer />
 
+    <!-- Sticky Buttons -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex justify-between items-end px-4 pb-4 pointer-events-none">
+      <!-- Left Button - Pregúntale a la Dra. Edith -->
+      <a
+        href="https://wa.me/525559890607?text=Hola%20Dra.%20Edith,%20tengo%20una%20pregunta%20sobre%20tratamiento%20reumatológico"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pointer-events-auto group"
+        aria-label="Pregúntale a la Dra. Edith"
+      >
+        <div class="relative bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-4 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-lg">
+                <img
+                  src="/assets/dredit.jpg"
+                  alt="Dra. Edith"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Pulse animation ring -->
+              <div class="absolute -inset-1 rounded-full border-2 border-pink-300 animate-ping opacity-75"></div>
+              <!-- Shine effect -->
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/30 to-transparent"></div>
+            </div>
+            <div class="text-left">
+              <p class="text-sm font-semibold leading-tight">Pregúntale a la</p>
+              <p class="text-lg font-bold leading-tight">Dra. Edith</p>
+            </div>
+          </div>
+          <!-- Sparkle effects -->
+          <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-300 rounded-full animate-pulse"></div>
+          <div class="absolute top-1/2 -right-2 w-2 h-2 bg-yellow-200 rounded-full animate-pulse delay-100"></div>
+          <div class="absolute -bottom-1 right-1/3 w-2 h-2 bg-yellow-200 rounded-full animate-pulse delay-200"></div>
+        </div>
+      </a>
+
+      <!-- Right Button - WhatsApp -->
+      <a
+        href="https://web.whatsapp.com/send?phone=525559890607&text=https%3A%2F%2Fartricenter.com.mx%2Fblog%2F%0D%0A%0D%0A%0D%0A%0D%0A%C2%A1Quiero%20agendar%20una%20consulta%20de%20valoraci%C3%B3n%20sin%20costo!"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pointer-events-auto group"
+        aria-label="Agendar consulta de valoración sin costo"
+      >
+        <div class="relative flex items-center">
+          <!-- WhatsApp Icon Button -->
+          <div class="relative">
+            <div class="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-0 group-hover:opacity-75 transition-opacity duration-300 animate-pulse"></div>
+            <div class="relative bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full shadow-2xl hover:shadow-green-500/50 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1">
+              <!-- WhatsApp Icon -->
+              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
+              1
+            </div>
+          </div>
+
+          <!-- Expandable Message -->
+          <div class="overflow-hidden">
+            <div class="max-w-0 opacity-0 group-hover:max-w-md group-hover:opacity-100 transition-all duration-500 ease-out">
+              <div class="bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-l-2xl shadow-2xl whitespace-nowrap">
+                <p class="font-bold text-base">¡Agenda aquí una consulta de valoración sin costo!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
     <script>
       // Minimal client-side JS for smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {

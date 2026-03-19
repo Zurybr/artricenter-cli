@@ -1,12 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import ContentSection from '@/components/ContentSection.astro';
-
-const intro = "Nuestro modelo combina evaluacion medica, ajustes terapeuticos y seguimiento clinico para avanzar con objetivos medibles desde la primera consulta.";
-
-const diagnostico = "Revisamos antecedentes, sintomas, exploracion fisica y estudios complementarios para confirmar el tipo de enfermedad y el nivel de actividad inflamatoria.";
-
-const paiper = "PAIPER integra monitoreo, control del dolor y prevencion de recaidas mediante un plan coordinado que se adapta al avance del paciente.";
 ---
 
 <Layout
@@ -15,39 +8,83 @@ const paiper = "PAIPER integra monitoreo, control del dolor y prevencion de reca
   currentPage="/tratamiento-medico-integral"
 >
   <div class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Tratamiento Medico Integral</h1>
+    <!-- Diagnóstico -->
+    <section id="diagnostico" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6">Diagnóstico</h2>
 
-    <ContentSection id="tratamiento-medico-integral" title="Tratamiento Medico Integral">
-      <p class="text-gray-700">{intro}</p>
-    </ContentSection>
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              En esta fase <strong class="text-blue-600">Artricenter</strong> realiza la evaluación exhaustiva de los pacientes y el diagnóstico de las enfermedades reumáticas. Aquí nuestros médicos determinan si la persona es candidata a tomar nuestro Tratamiento Médico Integral.
+            </p>
 
-    <ContentSection id="diagnostico" title="Diagnostico">
-      <p class="text-gray-700">{diagnostico}</p>
-    </ContentSection>
+            <p>
+              En Artricenter contamos con equipos de alta tecnología, así como un cuerpo de médicos altamente calificados que garantizan un diagnóstico exacto, oportuno y confiable.
+            </p>
+          </div>
+        </div>
 
-    <ContentSection id="paiper" title="Paiper">
-      <p class="text-gray-700">{paiper}</p>
-    </ContentSection>
+        <div class="order-1 lg:order-2">
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/medico_explicando.avif"
+              alt="Diagnóstico - Médico explicando a paciente"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="enlaces-relacionados" class="py-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
-      <ul class="space-y-2">
-        <li>
-          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
-            Condiciones reumaticas atendidas
-          </a>
-        </li>
-        <li>
-          <a href="/club-vida-y-salud" class="text-blue-600 hover:text-blue-700">
-            Habitos y recursos para seguimiento
-          </a>
-        </li>
-        <li>
-          <a href="/contactanos#contactanos" class="text-blue-600 hover:text-blue-700">
-            Agendar consulta de valoracion
-          </a>
-        </li>
-      </ul>
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+    </div>
+
+    <!-- Tratamiento Médico Integral -->
+    <section id="tratamiento-medico-integral" class="mb-16">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6 text-center">Tratamiento Médico Integral</h2>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p class="text-lg">
+            En <strong class="text-blue-600">Artricenter</strong> brindamos un Tratamiento Médico Integral, que es un modelo de atención médica innovador y científicamente sustentado, cuya finalidad es elevar continuamente la calidad de vida de nuestros pacientes, mejorándolos sin dañar.
+          </p>
+
+          <p class="text-lg">
+            Este programa de <strong class="text-blue-600">Artricenter</strong> está orientado a cumplir con tres objetivos principales:
+          </p>
+
+          <div class="space-y-4 mt-8">
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">1</div>
+              <p class="text-lg">
+                Diagnosticar oportunamente la presencia o ausencia de las enfermedades reumáticas.
+              </p>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">2</div>
+              <p class="text-lg">
+                Brindar un Tratamiento Médico Integral a cada uno de nuestros pacientes, que le permita el control adecuado de su enfermedad reumática y la mejora progresiva de sus síntomas.
+              </p>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">3</div>
+              <p class="text-lg">
+                Asegurar el mantenimiento de la mejora obtenida por nuestros pacientes durante su tratamiento. La finalidad es que la enfermedad reumática permanezca controlada durante toda la vida del paciente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </Layout>

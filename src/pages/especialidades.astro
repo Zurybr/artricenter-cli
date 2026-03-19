@@ -1,18 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import ContentSection from '@/components/ContentSection.astro';
-
-const intro = "Evaluamos cada caso con enfoque clinico integral para elegir estrategias seguras, realistas y alineadas con la etapa de vida de cada paciente.";
-
-const artrosis = "Diagnostico clinico y funcional para reducir dolor, mejorar movilidad articular y prevenir limitaciones progresivas en actividades cotidianas.";
-
-const artritisReumatoide = "Tratamientos dirigidos a control de inflamacion, proteccion articular y seguimiento periodico para detectar ajustes a tiempo.";
-
-const fibromialgia = "Planes personalizados para dolor cronico, calidad de sueno y fatiga, integrando educacion y habitos de autocuidado.";
-
-const espondilitisAnquilosante = "Manejo integral del dolor axial y rigidez con evaluacion funcional continua para sostener independencia y bienestar.";
-
-const reumatismosPartesBlandas = "Abordamos tendones, bursas y tejidos periarticulares con tratamiento medico oportuno y recomendaciones claras para recuperacion.";
 ---
 
 <Layout
@@ -21,51 +8,246 @@ const reumatismosPartesBlandas = "Abordamos tendones, bursas y tejidos periartic
   currentPage="/especialidades"
 >
   <div class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Especialidades</h1>
+    <!-- Enfermedades Reumáticas Intro -->
+    <section id="enfermedades-reumaticas" class="mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-8">Enfermedades Reumáticas</h2>
 
-    <ContentSection id="especialidades" title="Especialidades">
-      <p class="text-gray-700">{intro}</p>
-    </ContentSection>
+      <div class="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
+        <p>
+          Las enfermedades reumáticas son la segunda causa de consulta médica en hospitales, además de que aportan más del 50% de las causas de invalidez total o parcial y son la segunda causa de ausentismo y pérdida laboral.
+        </p>
 
-    <ContentSection id="artrosis-osteoartrosis" title="Artrosis / Osteoartrosis">
-      <p class="text-gray-700">{artrosis}</p>
-    </ContentSection>
+        <p>
+          Afectan el tejido conectivo pero la mayoría de ellas, cursan con inflamación y dolor del sistema locomotor y compromiso sistémico.
+        </p>
 
-    <ContentSection id="artritis-reumatoide" title="Artritis Reumatoide">
-      <p class="text-gray-700">{artritisReumatoide}</p>
-    </ContentSection>
+        <p>
+          En <strong class="text-blue-600">Artricenter</strong> nos especializamos en el tratamiento de tres de las principales enfermedades reumáticas: Osteoartrosis, Artritis reumatoide y Fibromialgia.
+        </p>
 
-    <ContentSection id="fibromialgia" title="Fibromialgia">
-      <p class="text-gray-700">{fibromialgia}</p>
-    </ContentSection>
+        <p>
+          Son aquellas que suelen afectar al aparato locomotor, es decir, articulaciones, tendones, ligamentos, músculos y huesos; sin embargo, algunas de ellas también pueden ocasionar daños en otros órganos.
+        </p>
 
-    <ContentSection id="espondilitis-anquilosante" title="Espondilitis Anquilosante">
-      <p class="text-gray-700">{espondilitisAnquilosante}</p>
-    </ContentSection>
+        <p>
+          Algunos de los síntomas más comunes que ocasionan estas enfermedades son: dolor, rigidez, inflamación, fatiga y trastornos del sueño.
+        </p>
+      </div>
+    </section>
 
-    <ContentSection id="reumatismos-de-partes-blandas" title="Reumatismos de Partes Blandas">
-      <p class="text-gray-700">{reumatismosPartesBlandas}</p>
-    </ContentSection>
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+    </div>
 
-    <section id="enlaces-relacionados" class="py-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
-      <ul class="space-y-2">
-        <li>
-          <a href="/tratamiento-medico-integral#diagnostico" class="text-blue-600 hover:text-blue-700">
-            Proceso de diagnostico y seguimiento
-          </a>
-        </li>
-        <li>
-          <a href="/club-vida-y-salud" class="text-blue-600 hover:text-blue-700">
-            Recursos para pacientes y familiares
-          </a>
-        </li>
-        <li>
-          <a href="/contactanos#contactanos" class="text-blue-600 hover:text-blue-700">
-            Solicitar valoracion medica
-          </a>
-        </li>
-      </ul>
+    <!-- Osteoartrosis -->
+    <section id="artrosis-osteoartrosis" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6">Osteoartrosis</h2>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Es una enfermedad que lesiona el cartílago de las articulaciones, provocando dolor y rigidez; y en los casos más avanzados genera deformación en el hueso.
+            </p>
+
+            <p>
+              Por lo general, afecta a las rodillas, columna, dedos de las manos, caderas. Es menos frecuente en hombros, codos y muñecas.
+            </p>
+
+            <p>
+              La osteoartritis hace que el cartílago se debilite y se vuelva blando, quebradizo y poco elástico. El constante desgaste hace que poco a poco vaya desapareciendo y va dejando expuesto al hueso que acostumbraba a cubrir.
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/rodilla.avif"
+              alt="Osteoartrosis - Rodilla"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-green-500 to-green-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-green-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-green-500 to-green-600 rounded-full"></div>
+    </div>
+
+    <!-- Artritis Reumatoide -->
+    <section id="artritis-reumatoide" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/mano.avif"
+              alt="Artritis Reumatoide - Mano"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-green-600 mb-6">Artritis Reumatoide</h2>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Es una enfermedad que lesiona el cartílago de las articulaciones, provocando dolor y rigidez; y en los casos más avanzados genera deformación en el hueso.
+            </p>
+
+            <p>
+              Por lo general, afecta a las rodillas, columna, dedos de las manos, caderas. Es menos frecuente en hombros, codos y muñecas.
+            </p>
+
+            <p>
+              La artritis reumatoide hace que el cartílago se debilite y se vuelva blando, quebradizo y poco elástico. El constante desgaste hace que poco a poco vaya desapareciendo y va dejando expuesto al hueso que acostumbraba a cubrir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-orange-500 to-orange-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-orange-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-orange-500 to-orange-600 rounded-full"></div>
+    </div>
+
+    <!-- Fibromialgia -->
+    <section id="fibromialgia" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-6">Fibromialgia</h2>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Es una enfermedad que lesiona el cartílago de las articulaciones, provocando dolor y rigidez; y en los casos más avanzados genera deformación en el hueso.
+            </p>
+
+            <p>
+              Por lo general, afecta a las rodillas, columna, dedos de las manos, caderas. Es menos frecuente en hombros, codos y muñecas.
+            </p>
+
+            <p>
+              La fibromialgia hace que el cartílago se debilite y se vuelva blando, quebradizo y poco elástico. El constante desgaste hace que poco a poco vaya desapareciendo y va dejando expuesto al hueso que acostumbraba a cubrir.
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/espalda.avif"
+              alt="Fibromialgia - Espalda"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+    </div>
+
+    <!-- Espondilitis Anquilosante -->
+    <section id="espondilitis-anquilosante" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/medica_ayudando.avif"
+              alt="Espondilitis Anquilosante - Médico ayudando"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6">Espondilitis Anquilosante</h2>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Es una enfermedad que lesiona el cartílago de las articulaciones, provocando dolor y rigidez; y en los casos más avanzados genera deformación en el hueso.
+            </p>
+
+            <p>
+              Por lo general, afecta a las rodillas, columna, dedos de las manos, caderas. Es menos frecuente en hombros, codos y muñecas.
+            </p>
+
+            <p>
+              La espondilitis anquilosante hace que el cartílago se debilite y se vuelva blando, quebradizo y poco elástico. El constante desgaste hace que poco a poco vaya desapareciendo y va dejando expuesto al hueso que acostumbraba a cubrir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <div class="flex items-center justify-center gap-6 my-16">
+      <div class="h-1 w-40 bg-gradient-to-r from-transparent via-green-500 to-green-600 rounded-full"></div>
+      <div class="flex gap-2">
+        <div class="w-3 h-3 bg-green-600 rounded-full animate-pulse"></div>
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+      </div>
+      <div class="h-1 w-40 bg-gradient-to-l from-transparent via-green-500 to-green-600 rounded-full"></div>
+    </div>
+
+    <!-- Reumatismos de Partes Blandas -->
+    <section id="reumatismos-de-partes-blandas" class="mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-600 mb-6">Reumatismos de Partes Blandas</h2>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Es una enfermedad que lesiona el cartílago de las articulaciones, provocando dolor y rigidez; y en los casos más avanzados genera deformación en el hueso.
+            </p>
+
+            <p>
+              Por lo general, afecta a las rodillas, columna, dedos de las manos, caderas. Es menos frecuente en hombros, codos y muñecas.
+            </p>
+
+            <p>
+              Los reumatismos de partes blandas hacen que el cartílago se debilite y se vuelva blando, quebradizo y poco elástico. El constante desgaste hace que poco a poco vaya desapareciendo y va dejando expuesto al hueso que acostumbraba a cubrir.
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="/assets/medica_ayudando_camilla.avif"
+              alt="Reumatismos de Partes Blandas - Médica ayudando en camilla"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </Layout>

@@ -31,20 +31,20 @@ export function validateNavItems(items: NavItem[]): void {
 
 export const navItems: NavItem[] = [
   {
-    label: "Conoce al equipo",
+    label: "Quienes Somos",
     page: "/",
     children: [
-      { label: "Quiénes somos", page: "/", hash: "#quienes-somos" },
-      { label: "Nuestra historia", page: "/", hash: "#nuestra-historia" },
-      { label: "Nuestros medicos", page: "/", hash: "#nuestros-medicos" },
-      { label: "Mision, vision y valores", page: "/", hash: "#mision-vision-valores" }
+      { label: "Artricenter", page: "/", hash: "#artricenter" },
+      { label: "Nuestra Historia", page: "/", hash: "#nuestra-historia" },
+      { label: "Nuestros Médicos", page: "/", hash: "#nuestros-medicos" },
+      { label: "Misión | Visión | Valores", page: "/", hash: "#mision-vision-valores" }
     ]
   },
   {
-    label: "Enfermedades que tratamos",
+    label: "Especialidades",
     page: "/especialidades",
     children: [
-      { label: "Artrosis", page: "/especialidades", hash: "#artrosis-osteoartrosis" },
+      { label: "Artrosis / Osteoartrosis", page: "/especialidades", hash: "#artrosis-osteoartrosis" },
       { label: "Artritis Reumatoide", page: "/especialidades", hash: "#artritis-reumatoide" },
       { label: "Fibromialgia", page: "/especialidades", hash: "#fibromialgia" },
       { label: "Espondilitis Anquilosante", page: "/especialidades", hash: "#espondilitis-anquilosante" },
@@ -52,7 +52,7 @@ export const navItems: NavItem[] = [
     ]
   },
   {
-    label: "Tratamiento y seguimiento",
+    label: "Tratamiento Médico Integral",
     page: "/tratamiento-medico-integral",
     children: [
       { label: "Diagnóstico", page: "/tratamiento-medico-integral", hash: "#diagnostico" },
@@ -60,16 +60,19 @@ export const navItems: NavItem[] = [
     ]
   },
   {
-    label: "Recursos para pacientes",
+    label: "Club Vida y Salud",
     page: "/club-vida-y-salud",
-    children: []
+    children: [
+      { label: "Club Vida y Salud", page: "/club-vida-y-salud", hash: "#club-vida-y-salud" },
+      { label: "Testimonios", page: "/club-vida-y-salud", hash: "#testimonios" }
+    ]
   },
   {
-    label: "Contacto y cita",
+    label: "Contáctanos",
     page: "/contactanos",
     children: [
-      { label: "Contacto", page: "/contactanos", hash: "#contactanos" },
-      { label: "Testimonios", page: "/contactanos", hash: "#testimonios" }
+      { label: "Blog", page: "/contactanos", hash: "#blog" },
+      { label: "Contáctanos", page: "/contactanos", hash: "#contactanos" }
     ]
   }
 ];

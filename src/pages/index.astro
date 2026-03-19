@@ -2,16 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import ContentSection from '@/components/ContentSection.astro';
 import { navConfig } from '@/config/navigation';
-
-const quienesSomos = "Artricenter es un equipo enfocado en reumatologia integral, con atencion cercana para personas que necesitan recuperar movilidad, bienestar y confianza en su tratamiento.";
-
-const artricenter = "Nuestro centro reune evaluacion medica, seguimiento continuo y educacion para pacientes con dolor articular cronico o enfermedades reumaticas.";
-
-const historia = "Iniciamos con la mision de ofrecer una alternativa especializada y humana. Hoy acompanamos a cientos de familias en procesos de diagnostico temprano y control de sintomas.";
-
-const medicos = "Contamos con especialistas certificados y personal clinico capacitado para crear planes claros, personalizados y medibles para cada etapa del tratamiento.";
-
-const misionVisionValores = "Mision: mejorar calidad de vida. Vision: ser referencia nacional en manejo integral de enfermedades reumaticas. Valores: empatia, ciencia, transparencia y acompanamiento constante.";
 ---
 
 <Layout
@@ -20,47 +10,321 @@ const misionVisionValores = "Mision: mejorar calidad de vida. Vision: ser refere
   currentPage="/"
 >
   <div class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Quienes Somos</h1>
+    <!-- Imagen primero -->
+    <div class="text-center mb-16">
+      <img src="/assets/rodill_mano_espalda.avif" alt="Rodillas, manos y espalda - Ilustración médica de articulaciones" class="mx-auto max-w-5xl rounded-lg shadow-lg" />
+    </div>
 
-    <ContentSection id="quienes-somos" title="Quienes Somos">
-      <p class="text-gray-700">{quienesSomos}</p>
-    </ContentSection>
+    <!-- Sección introductoria con texto -->
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-5xl font-bold text-blue-600 mb-8">Artricenter</h2>
+        <div class="flex items-center justify-center gap-6">
+          <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+          <div class="flex gap-2">
+            <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          </div>
+          <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        </div>
+      </div>
 
-    <ContentSection id="artricenter" title="Artricenter">
-      <p class="text-gray-700">{artricenter}</p>
-    </ContentSection>
+      <div class="max-w-4xl mx-auto space-y-6 text-justify text-lg text-gray-700 leading-relaxed px-4">
+        <p>
+          En Artricenter somos especialistas en el diagnóstico y tratamiento integral de enfermedades reumáticas.
+        </p>
 
-    <ContentSection id="nuestra-historia" title="Nuestra Historia">
-      <p class="text-gray-700">{historia}</p>
-    </ContentSection>
+        <p>
+          Entendemos que el dolor, la inflamación y la rigidez no solo afectan tus articulaciones, sino también tu rutina diaria, tu independencia y tu bienestar emocional.
+        </p>
 
-    <ContentSection id="nuestros-medicos" title="Nuestros Medicos">
-      <p class="text-gray-700">{medicos}</p>
-    </ContentSection>
+        <p>
+          Nuestro enfoque médico está basado en una valoración clínica detallada, diagnóstico preciso y planes de tratamiento personalizados, diseñados para aliviar el dolor, mejorar la función articular y prevenir el avance de la enfermedad.
+        </p>
 
-    <ContentSection id="mision-vision-valores" title="Mision, Vision y Valores">
-      <p class="text-gray-700">{misionVisionValores}</p>
-    </ContentSection>
+        <p>
+          Trabajamos con un modelo de atención centrado en el paciente, donde cada caso se estudia de manera individual para ofrecer soluciones seguras, efectivas y respaldadas por evidencia médica.
+        </p>
 
-    <section id="enlaces-relacionados" class="py-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
-      <ul class="space-y-2">
-        <li>
-          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
-            Enfermedades que tratamos
-          </a>
-        </li>
-        <li>
-          <a href="/tratamiento-medico-integral" class="text-blue-600 hover:text-blue-700">
-            Tratamiento y seguimiento
-          </a>
-        </li>
-        <li>
-          <a href="/contactanos" class="text-blue-600 hover:text-blue-700">
-            Agenda una valoracion
-          </a>
-        </li>
-      </ul>
+        <p>
+          Atendemos padecimientos como artrosis, artritis reumatoide, fibromialgia y otras condiciones que afectan tu movilidad y calidad de vida.
+        </p>
+
+        <p>
+          Nuestro compromiso es acompañarte en cada etapa de tu recuperación para que vuelvas a moverte con confianza y seguridad.
+        </p>
+      </div>
+
+      <!-- Botón CTA -->
+      <div class="text-center mt-12">
+        <a
+          href="/tratamiento-medico-integral"
+          class="inline-block px-8 py-4 bg-blue-600 text-white font-semibold text-lg rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1 active:translate-y-0 active:shadow-md transition-all duration-300 ease-in-out transform"
+        >
+          Tratamiento Médico Integral
+        </a>
+      </div>
+
+      <!-- Separador final estilizado -->
+      <div class="flex items-center justify-center gap-6 mt-16 mb-12">
+        <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        <div class="flex gap-2">
+          <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        </div>
+        <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- Sección Nuestra Historia -->
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-5xl font-bold text-blue-600 mb-8">Nuestra Historia</h2>
+        <div class="flex items-center justify-center gap-6">
+          <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+          <div class="flex gap-2">
+            <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          </div>
+          <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6 text-justify text-lg text-gray-700 leading-relaxed px-4">
+        <p>
+          Artricenter se establece en la Ciudad de México en el año 2008, bajo el nombre de Centro Médico de Enfermedades Reumáticas (CEMER) La Raza.
+        </p>
+
+        <p>
+          En 2008, el CEMER cambia su nombre a Artricenter, Centro Médico de Enfermedades Reumáticas, modificando su imagen y estructura. En mayo de 2011 abre su segunda sucursal, ubicada en Calzada Ignacio Zaragoza, Iztapalapa, Distrito Federal.
+        </p>
+
+        <p>
+          Debido al éxito obtenido, se creó el 2 de septiembre del el 2014 una nueva sucursal en Atizapán, Estado de México y en el 2020 abre la cuarta sucursal en Viaducto extendiendo así la cobertura de Atención Integral para Pacientes con Enfermedades Reumáticas (PAIPER)
+        </p>
+      </div>
+
+      <div class="flex items-center justify-center gap-6 mt-12">
+        <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        <div class="flex gap-2">
+          <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        </div>
+        <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- Sección Nuestros Médicos -->
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-5xl font-bold text-blue-600 mb-8">Nuestros Médicos</h2>
+        <div class="flex items-center justify-center gap-6">
+          <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+          <div class="flex gap-2">
+            <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          </div>
+          <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto mb-12 px-4">
+        <p class="text-justify text-lg text-gray-700 leading-relaxed">
+          Nuestro equipo médico está especializado en el manejo del dolor articular, enfermedades reumáticas como: Artritis Reumatoide | Artrosis | Fibromialgia | Espondilitis anquilosante | Reumatismos de Partes Blandas.
+        </p>
+        <p class="text-justify text-lg text-gray-700 leading-relaxed mt-4">
+          Brindamos diagnóstico preciso y tratamientos personalizados para mejorar la calidad de vida de nuestros pacientes.
+        </p>
+      </div>
+
+      <!-- Grid de doctores -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+        <!-- Doctor 1: Alexander -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="/assets/alexander.avif"
+              alt="Dr. Alexander Fernández Portello"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Director Médico de Artricenter La Raza</h3>
+            <p class="text-lg font-semibold text-blue-600 mb-1">Dr. Alexander Fernández Portello</p>
+            <p class="text-sm text-gray-600 mb-4">Especialista en Reumatología</p>
+            <p class="text-sm text-gray-700 mb-4">
+              Calzada Vallejo 233, Héroes de Nacozári, Gustavo A. Madero, 07780 Ciudad de México, CDMX
+            </p>
+            <div class="flex justify-center gap-4">
+              <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" aria-label="Facebook">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="#" class="text-blue-700 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 2: Cira -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="/assets/cira.avif"
+              alt="Dra. Cira Cibelis Calzadilla Columbie"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Director Médico de Artricenter Atizapán</h3>
+            <p class="text-lg font-semibold text-blue-600 mb-1">Dra. Cira Cibelis Calzadilla Columbie</p>
+            <p class="text-sm text-gray-600 mb-4">Especialista en Reumatología</p>
+            <p class="text-sm text-gray-700 mb-4">
+              Boulevard Adolfo López Mateos no.65 Mz. 1 Lt. 16 Zona 8, El Potrero, 57975 Ex-Ejido de Atizapán III. C.P. 57975
+            </p>
+            <div class="flex justify-center gap-4">
+              <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" aria-label="Facebook">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="#" class="text-blue-700 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 3: Justo -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="/assets/justo.avif"
+              alt="Dr. Justo Méndez"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Director Médico de Artricenter Viaducto</h3>
+            <p class="text-lg font-semibold text-blue-600 mb-1">Dr. Justo Méndez</p>
+            <p class="text-sm text-gray-600 mb-4">Especialista en Reumatología</p>
+            <p class="text-sm text-gray-700 mb-4">
+              Viaducto Río de la Piedad 130, Jamaica, Venustiano Carranza, 15800 Ciudad de México, CDMX
+            </p>
+            <div class="flex justify-center gap-4">
+              <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" aria-label="Facebook">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="#" class="text-blue-700 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-6 mt-12">
+        <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        <div class="flex gap-2">
+          <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        </div>
+        <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- Sección Misión | Visión | Valores -->
+    <section class="mb-16">
+      <div class="text-center mb-12">
+        <h2 class="text-5xl font-bold text-blue-600 mb-8">Misión | Visión | Valores</h2>
+        <div class="flex items-center justify-center gap-6">
+          <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+          <div class="flex gap-2">
+            <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          </div>
+          <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+        <!-- Misión -->
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-blue-600">
+          <div class="flex items-center justify-center mb-6">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-blue-600 text-center mb-4">MISIÓN</h3>
+          <p class="text-gray-700 text-center leading-relaxed">
+            Mejorar sin dañar a los pacientes con enfermedades reumáticas: artritis reumatoide, osteoartritis y fibromialgia.
+          </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-green-600">
+          <div class="flex items-center justify-center mb-6">
+            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-green-600 text-center mb-4">VISIÓN</h3>
+          <p class="text-gray-700 text-center leading-relaxed">
+            Ser el Centro Médico líder en México para el tratamiento de las enfermedades reumáticas: Osteoartrosis, Artritis Reumatoide y Fibromialgia.
+          </p>
+        </div>
+
+        <!-- Valores -->
+        <div class="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-orange-600">
+          <div class="flex items-center justify-center mb-6">
+            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-600 text-center mb-4">VALORES</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+              <span>Satisfacción del cliente</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+              <span>Innovación permanente</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+              <span>Desarrollo permanente de nuestro personal</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+              <span>Cumplimiento de los Objetivos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-6 mt-12">
+        <div class="h-1 w-40 bg-gradient-to-r from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+        <div class="flex gap-2">
+          <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        </div>
+        <div class="h-1 w-40 bg-gradient-to-l from-transparent via-blue-500 to-blue-600 rounded-full"></div>
+      </div>
     </section>
   </div>
 </Layout>

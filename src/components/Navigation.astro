@@ -11,40 +11,61 @@ const { items, currentPage } = Astro.props;
 function isActive(page: string, currentPage: string): boolean {
   return page === currentPage;
 }
+
+function isExternal(url: string): boolean {
+  return url.startsWith('http://') || url.startsWith('https://');
+}
+
+function getHref(item: NavItem): string {
+  if (isExternal(item.page)) {
+    return item.page;
+  }
+  return item.page + (item.hash || '');
+}
 ---
 
 <!-- Desktop Navigation -->
 <nav class="hidden lg:block" aria-label="Navegacion principal">
-  <ul class="flex items-center space-x-8">
+  <ul class="flex items-center gap-1">
     {items.map((item, index) => (
-      <li class="relative group">
-        <a
-          href={item.page + (item.hash || '')}
-          class:list={[
-            "inline-flex items-center px-3 py-2 text-sm font-medium transition-colors",
-            { "text-blue-600": isActive(item.page, currentPage) },
-            { "text-gray-700 hover:text-blue-600": !isActive(item.page, currentPage) }
-          ]}
-          aria-current={isActive(item.page, currentPage) ? 'page' : undefined}
-        >
-          {item.label}
-        </a>
+      <>
+        <li class="relative group">
+          <a
+            href={item.page + (item.hash || '')}
+            class:list={[
+              "inline-flex items-center px-3 py-2 text-sm font-medium transition-colors",
+              { "text-blue-600": isActive(item.page, currentPage) },
+              { "text-gray-700 hover:text-blue-600": !isActive(item.page, currentPage) }
+            ]}
+            aria-current={isActive(item.page, currentPage) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
 
-        {item.children && item.children.length > 0 && (
-          <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-1">
-              {item.children.map(child => (
-                <a
-                  href={child.page + (child.hash || '')}
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                >
-                  {child.label}
-                </a>
-              ))}
+          {item.children && item.children.length > 0 && (
+            <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-1">
+                {item.children.map(child => (
+                  <a
+                    href={child.page + (child.hash || '')}
+                    class:list={[
+                      "block px-4 py-2 text-sm hover:bg-gray-100",
+                      child.page.startsWith('http') ? "text-gray-700 hover:text-blue-600" : "text-gray-700 hover:text-blue-600"
+                    ]}
+                    target={child.page.startsWith('http') ? '_blank' : undefined}
+                    rel={child.page.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+        </li>
+        {index < items.length - 1 && index !== 1 && (
+          <li class="h-6 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" aria-hidden="true"></li>
         )}
-      </li>
+      </>
     ))}
   </ul>
 </nav>
