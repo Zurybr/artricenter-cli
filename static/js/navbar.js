@@ -5,9 +5,9 @@
   var SCROLLED_CLASS = "is-scrolled";
   var MOBILE_MENU_OPEN_CLASS = "mobile-menu-open";
 
-function isTouchDevice() {
-  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-}
+  function isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  }
 
   function getCurrentPageName() {
     var path = window.location.pathname;
@@ -506,6 +506,28 @@ function isTouchDevice() {
     });
   }
 
+  function bindHoverTriggers(navRoot) {
+    if (isTouchDevice()) {
+      return;
+    }
+
+    navRoot.querySelectorAll('[data-dropdown-item="true"]').forEach(function(item) {
+      var trigger = item.querySelector('[data-dropdown-trigger="true"]');
+      if (!trigger) {
+        return;
+      }
+
+      item.addEventListener('mouseenter', function() {
+        closeAllDropdowns(navRoot);
+        toggleDropdown(item, true);
+      });
+
+      item.addEventListener('mouseleave', function() {
+        toggleDropdown(item, false);
+      });
+    });
+  }
+
   function initNavbar() {
     var config = window.ARTRICENTER_NAV;
     var navRoot = renderNavbar(config);
@@ -514,6 +536,7 @@ function isTouchDevice() {
     }
 
     bindNavigation(navRoot);
+    bindHoverTriggers(navRoot);
     bindStickyHeaderState();
     renderCtas(config);
     handleInitialHashScroll();
