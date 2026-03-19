@@ -1,14 +1,83 @@
 ---
-// Placeholder Header component - will be implemented in Task 5
+import Navigation from './Navigation.astro';
+import { NavItem } from '@/config/navigation';
+
 interface Props {
-  navItems: any[];
+  navItems: NavItem[];
   currentPage: string;
 }
 
 const { navItems, currentPage } = Astro.props;
 ---
 
-<header>
-  <h1>Header Placeholder</h1>
-  <!-- Will be implemented in Task 5 -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center space-x-2"
+        aria-label="Ir a la página principal de Artricenter"
+      >
+        <img
+          src="/assets/logo.png"
+          alt="Artricenter"
+          class="h-10 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <Navigation items={navItems} currentPage={currentPage} />
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        type="button"
+        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+        aria-expanded="false"
+        data-mobile-toggle
+        aria-label="Abrir menú"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div
+    class="lg:hidden hidden border-t border-gray-200 bg-white"
+    data-mobile-menu
+    aria-hidden="true"
+  >
+    <nav class="px-4 py-4 space-y-1" aria-label="Navegación móvil">
+      {navItems.map(item => (
+        <div>
+          <a
+            href={item.page}
+            class:list={[
+              "block px-3 py-2 text-base font-medium rounded-md",
+              { "bg-blue-50 text-blue-600": item.page === currentPage },
+              { "text-gray-700 hover:bg-gray-100": item.page !== currentPage }
+            ]}
+          >
+            {item.label}
+          </a>
+
+          {item.children && item.children.length > 0 && (
+            <div class="mt-1 ml-4 space-y-1">
+              {item.children.map(child => (
+                <a
+                  href={child.page + (child.hash || '')}
+                  class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+  </div>
 </header>
