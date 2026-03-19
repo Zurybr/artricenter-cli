@@ -15,9 +15,16 @@ function fixPaths(dir) {
     } else if (file.endsWith('.html')) {
       let content = fs.readFileSync(filePath, 'utf-8');
 
-      // Fix all asset paths
+      // Fix asset paths (only if not already fixed)
       content = content.replace(/src="\/assets\//g, 'src="/artricenter-cli/assets/');
       content = content.replace(/href="\/assets\//g, 'href="/artricenter-cli/assets/');
+
+      // Fix internal navigation links - specific pages
+      const pages = ['especialidades', 'club-vida-y-salud', 'tratamiento-medico-integral', 'contactanos'];
+      pages.forEach(page => {
+        content = content.replace(new RegExp(`href="/${page}(?![a-z-])`, 'g'), `href="/artricenter-cli/${page}`);
+        content = content.replace(new RegExp(`href="/${page}#`, 'g'), `href="/artricenter-cli/${page}#`);
+      });
 
       fs.writeFileSync(filePath, content);
       console.log(`Fixed paths in ${filePath}`);
@@ -25,6 +32,6 @@ function fixPaths(dir) {
   });
 }
 
-console.log('Fixing asset paths for GitHub Pages...');
+console.log('Fixing asset and navigation paths for GitHub Pages...');
 fixPaths(distPath);
 console.log('Done!');
