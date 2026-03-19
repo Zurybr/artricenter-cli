@@ -43,6 +43,32 @@ function artricenter_enqueue_scripts(): void {
 add_action( 'wp_enqueue_scripts', 'artricenter_enqueue_scripts' );
 
 /**
+ * Enqueue plugin stylesheets.
+ *
+ * @return void
+ */
+function artricenter_enqueue_styles(): void {
+	// Enqueue variables first (dependencies)
+	wp_enqueue_style(
+		'artricenter-structure-variables',
+		plugins_url( 'assets/css/variables.css', __FILE__ ),
+		array(),
+		'1.0.0',
+		'all'
+	);
+
+	// Enqueue main styles (depends on variables)
+	wp_enqueue_style(
+		'artricenter-structure-style',
+		plugins_url( 'assets/css/main.css', __FILE__ ),
+		array( 'artricenter-structure-variables' ),
+		'1.0.0',
+		'all'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'artricenter_enqueue_styles' );
+
+/**
  * Register navigation menu locations.
  *
  * @return void
