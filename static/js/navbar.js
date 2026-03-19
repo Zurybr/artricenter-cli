@@ -5,6 +5,10 @@
   var SCROLLED_CLASS = "is-scrolled";
   var MOBILE_MENU_OPEN_CLASS = "mobile-menu-open";
 
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
   function getCurrentPageName() {
     var path = window.location.pathname;
     var page = path.substring(path.lastIndexOf("/") + 1);
