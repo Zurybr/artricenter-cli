@@ -27,8 +27,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Fix asset paths for GitHub Pages
-        run: node fix-paths.js
+      - name: Fix paths for GitHub Pages
+        run: |
+          find dist -name "*.html" -exec sed -i 's|src="/assets/|src="/artricenter-cli/assets/|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/assets/|href="/artricenter-cli/assets/|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' {} +
+
+      - name: Verify fixes
+        run: |
+          echo "Checking fixed paths..."
+          grep -r 'href="/artricenter-cli/especialidades' dist/ || echo "ERROR: especialidades paths not fixed"
+          grep -r 'src="/artricenter-cli/assets/' dist/ || echo "ERROR: asset paths not fixed"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
