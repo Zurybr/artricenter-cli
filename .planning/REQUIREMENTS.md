@@ -148,9 +148,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-02 | Phase 5 | Pending |
 | SEO-03 | Phase 5 | Pending |
 | SEO-04 | Phase 5 | Pending |
-| DEPLOY-01 | Phase 6 | Pending |
-| DEPLOY-02 | Phase 6 | Pending |
-| DEPLOY-03 | Phase 6 | Pending |
+| DEPLOY-01 | Phase 5 | Pending |
+| DEPLOY-02 | Phase 5 | Pending |
+| DEPLOY-03 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 35 total
@@ -159,4 +159,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-19*
-*Last updated: 2026-03-19 after initial definition*
+*Last updated: 2026-03-19 after roadmap creation*
