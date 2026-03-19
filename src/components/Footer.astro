@@ -4,7 +4,7 @@ const currentYear = new Date().getFullYear();
 
 <footer class="bg-gray-50 border-t border-gray-200 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
       <!-- Contacto -->
       <div>
         <h3 class="text-lg font-semibold text-gray-900 mb-4">Contacto</h3>
@@ -27,37 +27,14 @@ const currentYear = new Date().getFullYear();
               <p class="text-green-600 hover:text-green-700">55-5989-0607</p>
             </div>
           </li>
-        </ul>
-      </div>
-
-      <!-- Sucursales -->
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Sucursales</h3>
-        <ul class="space-y-2 text-sm text-gray-700">
-          <li class="flex items-center gap-2">
-            <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-            <span>La Raza</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
-            <span>Atizapán</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
-            <span>Viaducto</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Horarios -->
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Horarios de atención</h3>
-        <ul class="space-y-2 text-sm text-gray-700">
           <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span>Martes a sábado<br/>8:00 - 17:00 horas</span>
+            <div>
+              <p class="font-medium">Horario</p>
+              <p>Martes a sábado: 8:00 - 17:00 horas</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -81,6 +58,99 @@ const currentYear = new Date().getFullYear();
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sucursales con Mapas -->
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Nuestras Sucursales</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- La Raza -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-4 bg-gradient-to-r from-blue-500 to-blue-600">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <div class="w-3 h-3 bg-white rounded-full"></div>
+              La Raza
+            </h4>
+          </div>
+          <div class="p-4">
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Calzada Vallejo 233</strong><br/>
+              Héroes de Nacozári, Gustavo A. Madero<br/>
+              07780 Ciudad de México, CDMX
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Calzada+Vallejo+233+H%C3%A9roes+de+Nacoz%C3%A1ri+Gustavo+A+Madero+Ciudad+de+M%C3%A9xico"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Atizapán -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-4 bg-gradient-to-r from-green-500 to-green-600">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <div class="w-3 h-3 bg-white rounded-full"></div>
+              Atizapán
+            </h4>
+          </div>
+          <div class="p-4">
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Boulevard Adolfo López Mateos 65</strong><br/>
+              Mz. 1 Lt. 16 Zona 8, El Potrero<br/>
+              57975 Ex-Ejido de Atizapán III, Edo. México
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Boulevard+Adolfo+L%C3%B3pez+Mateos+65+Atizap%C3%A1n+Estado+de+M%C3%A9xico"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium text-sm"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Viaducto -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-4 bg-gradient-to-r from-orange-500 to-orange-600">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <div class="w-3 h-3 bg-white rounded-full"></div>
+              Viaducto
+            </h4>
+          </div>
+          <div class="p-4">
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Viaducto Río de la Piedad 130</strong><br/>
+              Jamaica, Venustiano Carranza<br/>
+              15800 Ciudad de México, CDMX
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Viaducto+R%C3%ADo+de+la+Piedad+130+Jamaica+Venustiano+Carranza+Ciudad+de+M%C3%A9xico"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-medium text-sm"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              Ver en Google Maps
+            </a>
+          </div>
         </div>
       </div>
     </div>
