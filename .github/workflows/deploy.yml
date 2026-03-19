@@ -28,25 +28,14 @@ jobs:
         run: npm run build
 
       - name: Fix paths for GitHub Pages
-        run: |
-          # Fix image paths
-          find dist -name "*.html" -exec sed -i 's|src="/assets/|src="/artricenter-cli/assets/|g' {} +
-          find dist -name "*.html" -exec sed -i 's|href="/assets/|href="/artricenter-cli/assets/|g' {} +
-
-          # Fix navigation paths
-          find dist -name "*.html" -exec sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' {} +
-          find dist -name "*.html" -exec sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' {} +
-          find dist -name "*.html" -exec sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' {} +
-          find dist -name "*.html" -exec sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' {} +
+        run: node fix-paths.js
 
       - name: Verify fixes
         run: |
-          echo "Checking fixed paths in all HTML files..."
-          find dist -name "*.html" -exec grep -q 'src="/artricenter-cli/assets/' {} \; && echo "✓ Asset paths fixed in all files"
-          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/especialidades' {} \; && echo "✓ especialidades navigation fixed"
-          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/club-vida-y-salud' {} \; && echo "✓ club-vida-y-salud navigation fixed"
-          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/tratamiento-medico-integral' {} \; && echo "✓ tratamiento-medico-integral navigation fixed"
-          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/contactanos' {} \; && echo "✓ contactanos navigation fixed"
+          echo "Checking fixed paths..."
+          grep -r 'src="/artricenter-cli/assets/' dist/index.html && echo "✓ Asset paths fixed in index.html"
+          grep -r 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ Navigation paths fixed in index.html"
+          ls -la dist/ && echo "✓ dist directory contents verified"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
