@@ -1,6 +1,12 @@
 <?php
 /**
- * Template tag functions for Artricenter Structure.
+ * Template Tags
+ *
+ * Functions for displaying Artricenter structure components in themes.
+ *
+ * Usage in theme templates:
+ * - Header: <?php artricenter_the_header(); ?>
+ * - Footer: <?php artricenter_the_footer(); ?>
  *
  * @package Artricenter_Structure
  */
@@ -24,6 +30,27 @@ function artricenter_get_header(): string {
  */
 function artricenter_the_header(): void {
 	echo artricenter_get_header();
+}
+
+/**
+ * Retrieve the Artricenter footer HTML.
+ *
+ * @return string Footer HTML markup.
+ */
+function artricenter_get_footer(): string {
+	$footer = new \Artricenter\Structure\Footer();
+	return $footer->render();
+}
+
+/**
+ * Display the Artricenter footer.
+ *
+ * Usage in theme: <?php artricenter_the_footer(); ?>
+ *
+ * @return void
+ */
+function artricenter_the_footer(): void {
+	echo artricenter_get_footer();
 }
 
 /**
