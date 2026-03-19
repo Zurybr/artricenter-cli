@@ -14,9 +14,9 @@ const { navItems, currentPage } = Astro.props;
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-md">
   <div class="max-w-7xl mx-auto px-4">
     <!-- Mobile Header -->
-    <div class="lg:hidden flex items-center justify-between h-16">
-      <!-- Logo centrado en móvil -->
-      <a href="/" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" aria-label="Ir a inicio">
+    <div class="lg:hidden flex items-center justify-between h-14">
+      <!-- Logo oculto en móvil -->
+      <a href="/" class="hidden" aria-label="Ir a inicio">
         <img src="/assets/logo.png" alt="Artricenter" class="h-12 w-auto" />
       </a>
 
@@ -35,6 +35,12 @@ const { navItems, currentPage } = Astro.props;
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+
+      <!-- Espaciador para balance -->
+      <div class="flex-1"></div>
+
+      <!-- Título "Artricenter" centrado -->
+      <span class="text-lg font-bold text-blue-600">Artricenter</span>
 
       <!-- Espaciador para balance -->
       <div class="w-12"></div>
