@@ -35,10 +35,13 @@ jobs:
           echo "Checking fixed paths..."
           grep -r 'src="/artricenter-cli/assets/' dist/index.html && echo "✓ Asset paths fixed in index.html"
           grep -r 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ Navigation paths fixed in index.html"
-          ls -la dist/ && echo "✓ dist directory contents verified"
+          echo "All files in dist:"
+          find dist -type f -name "*.html" | head -10
+          echo "Verifying file contents:"
+          head -20 dist/index.html | grep -o 'src="/[^"]*"' | head -3
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
