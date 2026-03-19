@@ -33,9 +33,9 @@ function getHref(item: NavItem): string {
           <a
             href={item.page + (item.hash || '')}
             class:list={[
-              "inline-flex items-center px-3 py-2 text-sm font-medium transition-colors",
-              { "text-blue-600": isActive(item.page, currentPage) },
-              { "text-gray-700 hover:text-blue-600": !isActive(item.page, currentPage) }
+              "inline-flex items-center px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg",
+              { "text-blue-600 bg-blue-50": isActive(item.page, currentPage) },
+              { "text-gray-700 hover:text-blue-600 hover:bg-gray-50": !isActive(item.page, currentPage) }
             ]}
             aria-current={isActive(item.page, currentPage) ? 'page' : undefined}
           >
@@ -43,14 +43,14 @@ function getHref(item: NavItem): string {
           </a>
 
           {item.children && item.children.length > 0 && (
-            <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="py-1">
+            <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2">
                 {item.children.map(child => (
                   <a
                     href={child.page + (child.hash || '')}
                     class:list={[
-                      "block px-4 py-2 text-sm hover:bg-gray-100",
-                      child.page.startsWith('http') ? "text-gray-700 hover:text-blue-600" : "text-gray-700 hover:text-blue-600"
+                      "block px-4 py-2.5 text-sm font-medium transition-colors",
+                      child.page.startsWith('http') ? "text-gray-700 hover:text-blue-600 hover:bg-gray-50" : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                     ]}
                     target={child.page.startsWith('http') ? '_blank' : undefined}
                     rel={child.page.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -69,65 +69,3 @@ function getHref(item: NavItem): string {
     ))}
   </ul>
 </nav>
-
-<!-- Mobile Navigation -->
-<div
-  class="lg:hidden hidden border-t border-gray-200 bg-white"
-  data-mobile-menu
-  aria-hidden="true"
->
-  <nav class="px-4 py-4 space-y-1" aria-label="Navegación móvil">
-    {items.map(item => (
-      <div>
-        <a
-          href={item.page}
-          class:list={[
-            "block px-3 py-2 text-base font-medium rounded-md",
-            { "bg-blue-50 text-blue-600": item.page === currentPage },
-            { "text-gray-700 hover:bg-gray-100": item.page !== currentPage }
-          ]}
-        >
-          {item.label}
-        </a>
-
-        {item.children && item.children.length > 0 && (
-          <div class="mt-1 ml-4 space-y-1">
-            {item.children.map(child => (
-              <a
-                href={child.page + (child.hash || '')}
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-              >
-                {child.label}
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-  </nav>
-</div>
-
-<script>
-  // Mobile menu toggle logic
-  const mobileToggle = document.querySelector('[data-mobile-toggle]');
-  const mobileMenu = document.querySelector('[data-mobile-menu]');
-
-  mobileToggle?.addEventListener('click', () => {
-    const isClosed = mobileMenu?.classList.contains('hidden');
-    if (isClosed) {
-      mobileMenu?.classList.remove('hidden');
-      mobileToggle?.setAttribute('aria-expanded', 'true');
-    } else {
-      mobileMenu?.classList.add('hidden');
-      mobileToggle?.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Close mobile menu on link click
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      mobileToggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
