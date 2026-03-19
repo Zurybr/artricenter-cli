@@ -1,0 +1,76 @@
+---
+import { NavItem } from '@/config/navigation';
+
+interface Props {
+  items: NavItem[];
+  currentPage: string;
+}
+
+const { items, currentPage } = Astro.props;
+
+function isActive(page: string, currentPage: string): boolean {
+  return page === currentPage;
+}
+---
+
+<!-- Desktop Navigation -->
+<nav class="hidden lg:block" aria-label="Navegacion principal">
+  <ul class="flex items-center space-x-8">
+    {items.map((item, index) => (
+      <li class="relative group">
+        <a
+          href={item.page + (item.hash || '')}
+          class:list={[
+            "inline-flex items-center px-3 py-2 text-sm font-medium transition-colors",
+            { "text-blue-600": isActive(item.page, currentPage) },
+            { "text-gray-700 hover:text-blue-600": !isActive(item.page, currentPage) }
+          ]}
+          aria-current={isActive(item.page, currentPage) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+
+        {item.children && item.children.length > 0 && (
+          <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-1">
+              {item.children.map(child => (
+                <a
+                  href={child.page + (child.hash || '')}
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<!-- Mobile Navigation Toggle -->
+<script>
+  // Mobile menu toggle logic
+  const mobileToggle = document.querySelector('[data-mobile-toggle]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+  mobileToggle?.addEventListener('click', () => {
+    const isClosed = mobileMenu?.classList.contains('hidden');
+    if (isClosed) {
+      mobileMenu?.classList.remove('hidden');
+      mobileToggle?.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu?.classList.add('hidden');
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
