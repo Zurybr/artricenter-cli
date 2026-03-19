@@ -196,6 +196,13 @@ a {
   transform: translateY(0);
 }
 
+/* Click-based dropdown */
+.site-navbar__item.is-open .site-navbar__dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .site-navbar__dropdown {
   position: absolute;
   top: calc(100% + 0.45rem);
