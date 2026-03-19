@@ -17,8 +17,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **STRUCT-01**: Plugin provides header component with logo and responsive navigation (mobile overlay + desktop)
 - [x] **STRUCT-02**: Plugin provides footer component with 3 sucursales cards (La Raza, Atizapán, Viaducto) including addresses, phone, and Google Maps links
-- [ ] **STRUCT-03**: Plugin provides global CSS converted from Tailwind with `.artricenter-` namespace prefix to avoid conflicts
-- [ ] **STRUCT-04**: Plugin provides smooth scroll navigation for in-page anchors (e.g., #artricenter, #nuestra-historia)
+- [x] **STRUCT-03**: Plugin provides global CSS converted from Tailwind with `.artricenter-` namespace prefix to avoid conflicts
+- [x] **STRUCT-04**: Plugin provides smooth scroll navigation for in-page anchors (e.g., #artricenter, #nuestra-historia)
 - [ ] **STRUCT-05**: Plugin registers WordPress hooks for other plugins to inject content (`artricenter_before_content`, `artricenter_after_content`)
 
 ### Content Pages
@@ -121,8 +121,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOCKER-03 | Phase 1 | Complete |
 | STRUCT-01 | Phase 1 | Complete |
 | STRUCT-02 | Phase 1 | Complete |
-| STRUCT-03 | Phase 1 | Pending |
-| STRUCT-04 | Phase 1 | Pending |
+| STRUCT-03 | Phase 1 | Complete |
+| STRUCT-04 | Phase 1 | Complete |
 | STRUCT-05 | Phase 1 | Pending |
 | CPT-01 | Phase 2 | Pending |
 | CPT-02 | Phase 2 | Pending |
