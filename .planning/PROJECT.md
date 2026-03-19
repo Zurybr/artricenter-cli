@@ -12,13 +12,13 @@ Replicar completamente el sitio actual de Artricenter en WordPress mediante plug
 
 ### Validated
 
-(Ninguna aún — es un proyecto brownfield, el código Astro actual representa el estado validado)
+- ✓ **DOCKER-01** — Phase 1: Entorno Docker Compose con WordPress 6.9.4, PHP 8.2, MySQL 8.0, Nginx, WP-CLI
+- ✓ **STRUCT-01** — Phase 1: Plugin de estructura con header responsive, footer con 3 sucursales, navegación móvil/desktop
+- ✓ **STRUCT-02** — Phase 1: CSS puro con namespace .artricenter-, variables CSS, smooth scroll
 
 ### Active
 
-- [ ] **DOCKER-01**: Crear entorno Docker local con WordPress y Docker Compose para desarrollo
-- [ ] **STRUCT-01**: Plugin de estructura del sitio (header, footer, navegación, estilos globales)
-- [ ] **STRUCT-02**: Convertir estilos de Tailwind CSS a CSS puro para WordPress
+- [ ] **PAGES-01**: Página de inicio con secciones: Artricenter, Nuestra Historia, Nuestros Médicos, Misión/Visión/Valores
 - [ ] **PAGES-01**: Página de inicio con secciones: Artricenter, Nuestra Historia, Nuestros Médicos, Misión/Visión/Valores
 - [ ] **PAGES-02**: Página de especialidades médicas
 - [ ] **PAGES-03**: Página de tratamiento médico integral
@@ -77,9 +77,12 @@ Replicar completamente el sitio actual de Artricenter en WordPress mediante plug
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Docker local para desarrollo | Aislamiento del entorno de producción, pruebas sin riesgo | ✓ Good |
-| Plugins modulares vs monolítico | Facilidad de mantenimiento, actualización independiente | — Pending |
+| Single plugin con clases separadas | Header/footer/nav/estilos interdependen; separar crearía dependencias artificiales | ✓ Good |
 | CSS puro vs Tailwind en WordPress | Mayor compatibilidad, menos dependencias, mejor performance | ✓ Good |
+| Namespace .artricenter- en CSS | Previene conflictos con temas de WordPress | ✓ Good |
+| Template tags para integración | Flexible para temas, no inyección automática | ✓ Good |
+| Custom hooks para extensibilidad | Permite que plugins futuros inyecten contenido | ✓ Good |
 | wp-admin para despliegue | Acceso disponible, sin necesidad de FTP/SSH directo | — Pending |
 
 ---
-*Last updated: 2026-03-19 after initialization*
+*Last updated: 2026-03-19 after Phase 1*
