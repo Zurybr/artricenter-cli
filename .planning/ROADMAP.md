@@ -30,7 +30,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Site displays footer with 3 sucursales cards (La Raza, Atizapán, Viaducto) including addresses, phone, and Google Maps links
   4. All pages use global CSS with `.artricenter-` namespace prefix to avoid conflicts with WordPress themes
   5. Smooth scroll navigation works for in-page anchors (e.g., #artricenter, #nuestra-historia)
-**Plans**: TBD
+
+**Plans**: 5 plans in 3 waves
 
 Plans:
 - [ ] 01-01: Set up Docker Compose environment with WordPress 6.9.4, PHP 8.2, MySQL 8.0, and WP-CLI
@@ -128,7 +129,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/5 | Not started | - |
+| 1. Foundation | 0/5 | Ready to execute | - |
 | 2. Content Engine | 0/9 | Not started | - |
 | 3. Interactive Features | 0/5 | Not started | - |
 | 4. Visual Polish | 0/5 | Not started | - |
