@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://zurybr.github.io/artricenter-cli',
-  base: '/artricenter-cli/',
+  site: 'https://artricenter.com',
+  base: '/',
   output: 'static',
 });
