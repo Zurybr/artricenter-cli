@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Minimal global overrides */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
