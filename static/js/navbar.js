@@ -5,10 +5,14 @@
   var SCROLLED_CLASS = "is-scrolled";
   var MOBILE_MENU_OPEN_CLASS = "mobile-menu-open";
 
+  function isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  }
+
   function getCurrentPageName() {
     var path = window.location.pathname;
     var page = path.substring(path.lastIndexOf("/") + 1);
-    return page || "quienes-somos.html";
+    return page || "index.html";
   }
 
   function normalizeHash(hash) {
@@ -75,7 +79,7 @@
 
   function navigateTo(page, hash) {
     var targetHash = normalizeHash(hash);
-    var targetPage = page || "quienes-somos.html";
+    var targetPage = page || "index.html";
 
     if (samePage(targetPage)) {
       if (targetHash) {
@@ -132,27 +136,15 @@
       listItem.appendChild(parentLink);
 
       if (hasChildren) {
-        var trigger = document.createElement("button");
-        var menuId = "site-submenu-" + index;
-        trigger.type = "button";
-        trigger.className = "site-navbar__trigger";
-        trigger.setAttribute("aria-expanded", "false");
-        trigger.setAttribute("aria-controls", menuId);
-        trigger.setAttribute("aria-label", "Abrir submenu de " + item.label);
-        trigger.dataset.dropdownTrigger = "true";
-        trigger.innerHTML = '<span class="site-navbar__trigger-icon" aria-hidden="true">+</span>';
-
         var panel = document.createElement("div");
         panel.className = "site-navbar__dropdown";
-        panel.id = menuId;
-        panel.hidden = true;
+        panel.hidden = false;
 
         var scrollArea = document.createElement("div");
         scrollArea.className = "site-navbar__dropdown-scroll";
         scrollArea.appendChild(createSubmenuLinks(item.children, false));
 
         panel.appendChild(scrollArea);
-        listItem.appendChild(trigger);
         listItem.appendChild(panel);
       }
 
@@ -225,6 +217,25 @@
     return drawer;
   }
 
+  function renderLogoContainer() {
+    var container = document.createElement("div");
+    container.className = "site-logo-container";
+    container.id = "site-logo-container";
+
+    var logo = document.createElement("a");
+    logo.className = "site-logo-container__logo";
+    logo.href = "index.html";
+    logo.setAttribute("aria-label", "Ir a la pagina principal de Artricenter");
+    
+    var logoImg = document.createElement("img");
+    logoImg.src = "assets/logo.png";
+    logoImg.alt = "Artricenter";
+    
+    logo.appendChild(logoImg);
+    container.appendChild(logo);
+    return container;
+  }
+
   function renderNavbar(config) {
     var mount = document.getElementById("site-navbar");
     if (!mount || !config || !Array.isArray(config.items)) {
@@ -240,9 +251,16 @@
 
     var brand = document.createElement("a");
     brand.className = "site-navbar__brand";
-    brand.href = "quienes-somos.html";
+    brand.href = "index.html";
     brand.setAttribute("aria-label", "Ir a la seccion principal de Artricenter");
-    brand.innerHTML = '<img src="assets/logo.png" alt="Artricenter" />';
+    
+    var brandLogo = document.createElement("div");
+    brandLogo.className = "site-navbar__brand-logo";
+    var brandImg = document.createElement("img");
+    brandImg.src = "assets/logo.png";
+    brandImg.alt = "Artricenter";
+    brandLogo.appendChild(brandImg);
+    brand.appendChild(brandLogo);
 
     var desktopNav = document.createElement("nav");
     desktopNav.className = "site-navbar__desktop";
@@ -265,21 +283,14 @@
     mount.innerHTML = "";
     mount.appendChild(root);
 
-    return root;
-  }
+    // Add logo container above header
+    var header = document.querySelector("[data-site-header]");
+    if (header && !document.getElementById("site-logo-container")) {
+      var logoContainer = renderLogoContainer();
+      header.parentNode.insertBefore(logoContainer, header);
+    }
 
-  function closeAllDropdowns(navRoot) {
-    navRoot.querySelectorAll("[data-dropdown-item='true']").forEach(function (item) {
-      var trigger = item.querySelector("[data-dropdown-trigger='true']");
-      var panel = item.querySelector(".site-navbar__dropdown");
-      item.classList.remove(ACTIVE_DROPDOWN_CLASS);
-      if (trigger) {
-        trigger.setAttribute("aria-expanded", "false");
-      }
-      if (panel) {
-        panel.hidden = true;
-      }
-    });
+    return root;
   }
 
   function closeMobileDrawer(navRoot) {
@@ -312,34 +323,8 @@
     toggle.setAttribute("aria-label", action + " submenu de " + groupLabel);
   }
 
-  function toggleDropdown(item, forceOpen) {
-    var trigger = item.querySelector("[data-dropdown-trigger='true']");
-    var panel = item.querySelector(".site-navbar__dropdown");
-    if (!trigger || !panel) {
-      return;
-    }
-
-    var shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !item.classList.contains(ACTIVE_DROPDOWN_CLASS);
-    item.classList.toggle(ACTIVE_DROPDOWN_CLASS, shouldOpen);
-    panel.hidden = !shouldOpen;
-    trigger.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
-  }
-
   function bindNavigation(navRoot) {
     navRoot.addEventListener("click", function (event) {
-      var trigger = event.target.closest("[data-dropdown-trigger='true']");
-      if (trigger) {
-        event.preventDefault();
-        var item = trigger.closest("[data-dropdown-item='true']");
-        if (!item) {
-          return;
-        }
-        var isOpen = item.classList.contains(ACTIVE_DROPDOWN_CLASS);
-        closeAllDropdowns(navRoot);
-        toggleDropdown(item, !isOpen);
-        return;
-      }
-
       var mobileGroupTrigger = event.target.closest("[data-mobile-group-trigger='true']");
       if (mobileGroupTrigger) {
         event.preventDefault();
@@ -384,38 +369,30 @@
 
       event.preventDefault();
       navigateTo(link.dataset.page, link.dataset.hash);
-      closeAllDropdowns(navRoot);
       closeMobileDrawer(navRoot);
     });
 
     document.addEventListener("click", function (event) {
       if (!event.target.closest(".site-navbar__desktop")) {
-        closeAllDropdowns(navRoot);
+        // Dropdowns now close on mouse leave, no action needed here
       }
     });
 
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
-        closeAllDropdowns(navRoot);
         closeMobileDrawer(navRoot);
       }
     });
 
     navRoot.querySelectorAll("[data-dropdown-item='true']").forEach(function (item) {
-      if (!item.querySelector("[data-dropdown-trigger='true']")) {
+      var hasChildren = item.querySelector(".site-navbar__dropdown");
+      if (!hasChildren) {
         return;
       }
 
-      item.addEventListener("focusin", function () {
-        closeAllDropdowns(navRoot);
-        toggleDropdown(item, true);
-      });
-
-      item.addEventListener("focusout", function (event) {
-        if (item.contains(event.relatedTarget)) {
-          return;
-        }
-        toggleDropdown(item, false);
+      // Close dropdown when mouse leaves the item
+      item.addEventListener("mouseleave", function () {
+        // Dropdown closes automatically via CSS
       });
     });
 
@@ -428,12 +405,17 @@
 
   function bindStickyHeaderState() {
     var header = document.querySelector("[data-site-header]");
+    var logoContainer = document.getElementById("site-logo-container");
     if (!header) {
       return;
     }
 
     function updateState() {
-      header.classList.toggle(SCROLLED_CLASS, window.scrollY > 10);
+      var isScrolled = window.scrollY > 80;
+      header.classList.toggle(SCROLLED_CLASS, isScrolled);
+      if (logoContainer) {
+        logoContainer.classList.toggle(SCROLLED_CLASS, isScrolled);
+      }
     }
 
     updateState();
