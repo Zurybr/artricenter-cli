@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContentSection from '@/components/ContentSection.astro';
+
+const intro = "Agenda una valoracion y recibe orientacion inicial sobre tu caso. Nuestro equipo comparte horarios, ubicacion y pasos para iniciar atencion.";
+
+const testimonios = "Pacientes de diferentes edades comparten su experiencia al mejorar movilidad, disminuir dolor y retomar actividades que habian dejado por limitacion articular.";
+
+const blog = "Publicamos temas de interes sobre reumatologia, diagnostico oportuno y recomendaciones de bienestar para vivir mejor con enfermedades cronicas.";
+---
+
+<Layout
+  title="Contacto y Citas | Artricenter"
+  description="Agenda una valoracion en Artricenter y conoce horarios, ubicacion y el proceso para iniciar tu tratamiento reumatologico."
+  currentPage="/contactanos"
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Contactanos</h1>
+
+    <ContentSection id="contactanos" title="Contactanos">
+      <p class="text-gray-700">{intro}</p>
+    </ContentSection>
+
+    <ContentSection id="testimonios" title="Testimonios">
+      <p class="text-gray-700">{testimonios}</p>
+    </ContentSection>
+
+    <ContentSection id="blog" title="Blog">
+      <p class="text-gray-700">{blog}</p>
+    </ContentSection>
+
+    <section id="enlaces-relacionados" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
+      <ul class="space-y-2">
+        <li>
+          <a href="/" class="text-blue-600 hover:text-blue-700">
+            Conoce al equipo medico
+          </a>
+        </li>
+        <li>
+          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
+            Revisa enfermedades atendidas
+          </a>
+        </li>
+        <li>
+          <a href="/tratamiento-medico-integral" class="text-blue-600 hover:text-blue-700">
+            Explora el plan de tratamiento
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>

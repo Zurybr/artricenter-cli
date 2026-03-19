@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContentSection from '@/components/ContentSection.astro';
+
+const intro = "Nuestro modelo combina evaluacion medica, ajustes terapeuticos y seguimiento clinico para avanzar con objetivos medibles desde la primera consulta.";
+
+const diagnostico = "Revisamos antecedentes, sintomas, exploracion fisica y estudios complementarios para confirmar el tipo de enfermedad y el nivel de actividad inflamatoria.";
+
+const paiper = "PAIPER integra monitoreo, control del dolor y prevencion de recaidas mediante un plan coordinado que se adapta al avance del paciente.";
+---
+
+<Layout
+  title="Tratamiento Medico Integral | Artricenter"
+  description="Modelo de tratamiento reumatologico integral con diagnostico, ajustes terapeuticos y seguimiento clinico personalizado."
+  currentPage="/tratamiento-medico-integral"
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Tratamiento Medico Integral</h1>
+
+    <ContentSection id="tratamiento-medico-integral" title="Tratamiento Medico Integral">
+      <p class="text-gray-700">{intro}</p>
+    </ContentSection>
+
+    <ContentSection id="diagnostico" title="Diagnostico">
+      <p class="text-gray-700">{diagnostico}</p>
+    </ContentSection>
+
+    <ContentSection id="paiper" title="Paiper">
+      <p class="text-gray-700">{paiper}</p>
+    </ContentSection>
+
+    <section id="enlaces-relacionados" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
+      <ul class="space-y-2">
+        <li>
+          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
+            Condiciones reumaticas atendidas
+          </a>
+        </li>
+        <li>
+          <a href="/club-vida-y-salud" class="text-blue-600 hover:text-blue-700">
+            Habitos y recursos para seguimiento
+          </a>
+        </li>
+        <li>
+          <a href="/contactanos#contactanos" class="text-blue-600 hover:text-blue-700">
+            Agendar consulta de valoracion
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>

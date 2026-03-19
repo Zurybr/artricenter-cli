@@ -1,0 +1,71 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContentSection from '@/components/ContentSection.astro';
+
+const intro = "Evaluamos cada caso con enfoque clinico integral para elegir estrategias seguras, realistas y alineadas con la etapa de vida de cada paciente.";
+
+const artrosis = "Diagnostico clinico y funcional para reducir dolor, mejorar movilidad articular y prevenir limitaciones progresivas en actividades cotidianas.";
+
+const artritisReumatoide = "Tratamientos dirigidos a control de inflamacion, proteccion articular y seguimiento periodico para detectar ajustes a tiempo.";
+
+const fibromialgia = "Planes personalizados para dolor cronico, calidad de sueno y fatiga, integrando educacion y habitos de autocuidado.";
+
+const espondilitisAnquilosante = "Manejo integral del dolor axial y rigidez con evaluacion funcional continua para sostener independencia y bienestar.";
+
+const reumatismosPartesBlandas = "Abordamos tendones, bursas y tejidos periarticulares con tratamiento medico oportuno y recomendaciones claras para recuperacion.";
+---
+
+<Layout
+  title="Especialidades Reumatologicas | Artricenter"
+  description="Conoce las enfermedades reumatologicas que tratamos en Artricenter: artrosis, artritis reumatoide, fibromialgia y mas."
+  currentPage="/especialidades"
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Especialidades</h1>
+
+    <ContentSection id="especialidades" title="Especialidades">
+      <p class="text-gray-700">{intro}</p>
+    </ContentSection>
+
+    <ContentSection id="artrosis-osteoartrosis" title="Artrosis / Osteoartrosis">
+      <p class="text-gray-700">{artrosis}</p>
+    </ContentSection>
+
+    <ContentSection id="artritis-reumatoide" title="Artritis Reumatoide">
+      <p class="text-gray-700">{artritisReumatoide}</p>
+    </ContentSection>
+
+    <ContentSection id="fibromialgia" title="Fibromialgia">
+      <p class="text-gray-700">{fibromialgia}</p>
+    </ContentSection>
+
+    <ContentSection id="espondilitis-anquilosante" title="Espondilitis Anquilosante">
+      <p class="text-gray-700">{espondilitisAnquilosante}</p>
+    </ContentSection>
+
+    <ContentSection id="reumatismos-de-partes-blandas" title="Reumatismos de Partes Blandas">
+      <p class="text-gray-700">{reumatismosPartesBlandas}</p>
+    </ContentSection>
+
+    <section id="enlaces-relacionados" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
+      <ul class="space-y-2">
+        <li>
+          <a href="/tratamiento-medico-integral#diagnostico" class="text-blue-600 hover:text-blue-700">
+            Proceso de diagnostico y seguimiento
+          </a>
+        </li>
+        <li>
+          <a href="/club-vida-y-salud" class="text-blue-600 hover:text-blue-700">
+            Recursos para pacientes y familiares
+          </a>
+        </li>
+        <li>
+          <a href="/contactanos#contactanos" class="text-blue-600 hover:text-blue-700">
+            Solicitar valoracion medica
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>

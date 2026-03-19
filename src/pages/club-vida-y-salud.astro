@@ -1,0 +1,47 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContentSection from '@/components/ContentSection.astro';
+
+const intro = "Este espacio comparte educacion en salud articular, recomendaciones practicas y actividades para fortalecer habitos diarios que apoyen el tratamiento medico.";
+
+const actividadesComunidad = "Publicamos contenidos utiles para pacientes y familiares con orientacion sencilla sobre autocuidado, movimiento seguro y prevencion de brotes inflamatorios.";
+---
+
+<Layout
+  title="Club Vida y Salud | Artricenter"
+  description="Recursos para pacientes con recomendaciones de autocuidado, actividad fisica segura y educacion en salud articular."
+  currentPage="/club-vida-y-salud"
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Club Vida y Salud</h1>
+
+    <ContentSection id="club-vida-y-salud" title="Club Vida y Salud">
+      <p class="text-gray-700">{intro}</p>
+    </ContentSection>
+
+    <ContentSection id="actividades-y-comunidad" title="Actividades y Comunidad">
+      <p class="text-gray-700">{actividadesComunidad}</p>
+    </ContentSection>
+
+    <section id="enlaces-relacionados" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Enlaces relacionados</h2>
+      <ul class="space-y-2">
+        <li>
+          <a href="/tratamiento-medico-integral" class="text-blue-600 hover:text-blue-700">
+            Plan de tratamiento integral
+          </a>
+        </li>
+        <li>
+          <a href="/especialidades" class="text-blue-600 hover:text-blue-700">
+            Enfermedades que tratamos
+          </a>
+        </li>
+        <li>
+          <a href="/contactanos#blog" class="text-blue-600 hover:text-blue-700">
+            Lecturas y recomendaciones del blog
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>
