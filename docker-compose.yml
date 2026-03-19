@@ -1,0 +1,66 @@
+version: '3.9'
+
+services:
+  wordpress:
+    image: wordpress:6.9.4-php8.2-fpm-alpine
+    container_name: artricenter_wp
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: artricenter
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wpsecret
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    depends_on:
+      - db
+    networks:
+      - artricenter_network
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: artricenter_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - wordpress
+    networks:
+      - artricenter_network
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: artricenter_db
+    environment:
+      MYSQL_DATABASE: artricenter
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wpsecret
+      MYSQL_ROOT_PASSWORD: rootsecret
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - artricenter_network
+    restart: unless-stopped
+
+  wpcli:
+    image: wordpress:cli-php8.2
+    container_name: artricenter_wpcli
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - db
+      - wordpress
+    networks:
+      - artricenter_network
+    restart: unless-stopped
+
+volumes:
+  db_data:
+
+networks:
+  artricenter_network:
+    driver: bridge
