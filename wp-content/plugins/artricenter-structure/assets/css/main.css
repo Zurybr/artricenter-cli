@@ -1,0 +1,320 @@
+/**
+ * Main Stylesheet for Artricenter
+ *
+ * Converted from Tailwind CSS to semantic CSS with .artricenter- namespace
+ * Uses BEM methodology: block__element--modifier
+ *
+ * @package Artricenter_Structure
+ */
+
+/* Smooth scroll behavior */
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--artricenter-spacing-20); /* 5rem */
+}
+
+/* ========================================
+   Header Block
+   ======================================== */
+
+.artricenter-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--artricenter-color-white);
+	border-bottom: 1px solid var(--artricenter-color-gray-200);
+	position: sticky;
+	top: 0;
+	z-index: var(--artricenter-z-sticky);
+	padding: var(--artricenter-spacing-4) var(--artricenter-spacing-6);
+}
+
+/* Mobile Header */
+.artricenter-header__mobile {
+	display: flex;
+	align-items: center;
+	gap: var(--artricenter-spacing-4);
+}
+
+/* Desktop Header */
+.artricenter-header__desktop {
+	display: none;
+	align-items: center;
+	gap: var(--artricenter-spacing-8);
+}
+
+/* Logo */
+.artricenter-header__logo {
+	max-height: 4rem;
+	width: auto;
+}
+
+/* Title (mobile) */
+.artricenter-header__title {
+	font-size: var(--artricenter-font-size-lg);
+	font-weight: var(--artricenter-font-weight-semibold);
+	color: var(--artricenter-color-gray-800);
+}
+
+/* Menu Toggle Button */
+.artricenter-menu-toggle {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: var(--artricenter-spacing-2);
+}
+
+.artricenter-menu-toggle .hamburger-line {
+	width: 24px;
+	height: 2px;
+	background-color: var(--artricenter-color-gray-800);
+	transition: all 0.3s ease;
+}
+
+/* ========================================
+   Navigation Block
+   ======================================== */
+
+.artricenter-nav {
+	display: none;
+}
+
+.artricenter-nav__menu {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: var(--artricenter-spacing-8);
+}
+
+.artricenter-nav__menu a {
+	text-decoration: none;
+	color: var(--artricenter-color-gray-700);
+	font-weight: var(--artricenter-font-weight-medium);
+	transition: color 0.2s ease;
+}
+
+.artricenter-nav__menu a:hover {
+	color: var(--artricenter-color-blue);
+}
+
+/* Mobile Menu Overlay */
+.artricenter-menu-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	max-width: 28rem; /* 448px */
+	height: 100vh;
+	background-color: var(--artricenter-color-white);
+	box-shadow: var(--artricenter-shadow-lg);
+	transform: translateX(100%);
+	transition: transform 0.3s ease-out;
+	z-index: var(--artricenter-z-modal);
+}
+
+.artricenter-menu-overlay--open {
+	transform: translateX(0);
+}
+
+.artricenter-menu-overlay__content {
+	padding: var(--artricenter-spacing-6);
+}
+
+.artricenter-menu-close {
+	display: block;
+	width: 100%;
+	text-align: right;
+	background: none;
+	border: none;
+	font-size: var(--artricenter-font-size-4xl);
+	cursor: pointer;
+	padding: var(--artricenter-spacing-4);
+	color: var(--artricenter-color-gray-700);
+}
+
+/* ========================================
+   Footer Block
+   ======================================== */
+
+.artricenter-footer {
+	background-color: var(--artricenter-color-gray-50);
+	padding: var(--artricenter-spacing-12) 0;
+	margin-top: var(--artricenter-spacing-16);
+}
+
+.artricenter-footer__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--artricenter-spacing-6);
+}
+
+.artricenter-footer__title {
+	font-size: var(--artricenter-font-size-2xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	text-align: center;
+	margin-bottom: var(--artricenter-spacing-8);
+}
+
+.artricenter-footer__cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--artricenter-spacing-6);
+	margin-bottom: var(--artricenter-spacing-12);
+}
+
+.artricenter-footer__card {
+	background-color: var(--artricenter-color-white);
+	border-radius: var(--artricenter-radius-lg);
+	padding: var(--artricenter-spacing-6);
+	text-align: center;
+	box-shadow: var(--artricenter-shadow);
+}
+
+/* Color-coded cards */
+.artricenter-footer__card--blue {
+	border-left: 4px solid var(--artricenter-color-blue);
+}
+
+.artricenter-footer__card--green {
+	border-left: 4px solid var(--artricenter-color-green);
+}
+
+.artricenter-footer__card--orange {
+	border-left: 4px solid var(--artricenter-color-orange);
+}
+
+.artricenter-footer__card-icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto var(--artricenter-spacing-4);
+}
+
+.artricenter-footer__card-name {
+	font-size: var(--artricenter-font-size-xl);
+	font-weight: var(--artricenter-font-weight-semibold);
+	color: var(--artricenter-color-gray-800);
+	margin-bottom: var(--artricenter-spacing-2);
+}
+
+.artricenter-footer__card-address {
+	font-size: var(--artricenter-font-size-sm);
+	color: var(--artricenter-color-gray-600);
+	margin-bottom: var(--artricenter-spacing-2);
+	font-style: normal;
+}
+
+.artricenter-footer__card-phone {
+	display: block;
+	color: var(--artricenter-color-blue);
+	text-decoration: none;
+	font-weight: var(--artricenter-font-weight-medium);
+	margin-bottom: var(--artricenter-spacing-3);
+}
+
+.artricenter-footer__card-maps {
+	display: inline-block;
+	background-color: var(--artricenter-color-gray-100);
+	color: var(--artricenter-color-gray-700);
+	padding: var(--artricenter-spacing-2) var(--artricenter-spacing-4);
+	border-radius: var(--artricenter-radius);
+	text-decoration: none;
+	font-size: var(--artricenter-font-size-sm);
+	font-weight: var(--artricenter-font-weight-medium);
+	transition: background-color 0.2s ease;
+}
+
+.artricenter-footer__card-maps:hover {
+	background-color: var(--artricenter-color-gray-200);
+}
+
+/* Footer Info Section */
+.artricenter-footer__info {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--artricenter-spacing-6);
+	padding-top: var(--artricenter-spacing-8);
+	border-top: 1px solid var(--artricenter-color-gray-200);
+}
+
+.artricenter-footer__info-block {
+	text-align: center;
+}
+
+.artricenter-footer__info-title {
+	font-size: var(--artricenter-font-size-lg);
+	font-weight: var(--artricenter-font-weight-semibold);
+	color: var(--artricenter-color-gray-800);
+	margin-bottom: var(--artricenter-spacing-2);
+}
+
+.artricenter-footer__info-text {
+	color: var(--artricenter-color-gray-600);
+	font-size: var(--artricenter-font-size-sm);
+}
+
+.artricenter-footer__info-link {
+	color: var(--artricenter-color-blue);
+	text-decoration: none;
+	font-weight: var(--artricenter-font-weight-medium);
+}
+
+.artricenter-footer__social {
+	display: flex;
+	justify-content: center;
+	gap: var(--artricenter-spacing-4);
+}
+
+.artricenter-footer__social a {
+	color: var(--artricenter-color-gray-700);
+	text-decoration: none;
+	font-size: var(--artricenter-font-size-sm);
+	transition: color 0.2s ease;
+}
+
+.artricenter-footer__social a:hover {
+	color: var(--artricenter-color-blue);
+}
+
+.artricenter-footer__copyright {
+	text-align: center;
+	margin-top: var(--artricenter-spacing-8);
+	padding-top: var(--artricenter-spacing-4);
+	border-top: 1px solid var(--artricenter-color-gray-200);
+}
+
+.artricenter-footer__copyright p {
+	color: var(--artricenter-color-gray-600);
+	font-size: var(--artricenter-font-size-sm);
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+
+/* Desktop styles (≥ 1024px) */
+@media (min-width: 1024px) {
+	.artricenter-header__mobile {
+		display: none;
+	}
+
+	.artricenter-header__desktop {
+		display: flex;
+	}
+
+	.artricenter-nav {
+		display: block;
+	}
+
+	.artricenter-footer__cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.artricenter-footer__info {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
