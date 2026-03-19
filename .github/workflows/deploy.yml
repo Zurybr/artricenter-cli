@@ -34,16 +34,19 @@ jobs:
           find dist -name "*.html" -exec sed -i 's|href="/assets/|href="/artricenter-cli/assets/|g' {} +
 
           # Fix navigation paths
-          sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' dist/**/*.html
-          sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' dist/**/*.html
-          sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' dist/**/*.html
-          sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' dist/**/*.html
+          find dist -name "*.html" -exec sed -i 's|href="/especialidades|href="/artricenter-cli/especialidades|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/club-vida-y-salud|href="/artricenter-cli/club-vida-y-salud|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/tratamiento-medico-integral|href="/artricenter-cli/tratamiento-medico-integral|g' {} +
+          find dist -name "*.html" -exec sed -i 's|href="/contactanos|href="/artricenter-cli/contactanos|g' {} +
 
       - name: Verify fixes
         run: |
           echo "Checking fixed paths in all HTML files..."
           find dist -name "*.html" -exec grep -q 'src="/artricenter-cli/assets/' {} \; && echo "✓ Asset paths fixed in all files"
-          grep -q 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ Navigation paths fixed in index.html"
+          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/especialidades' {} \; && echo "✓ especialidades navigation fixed"
+          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/club-vida-y-salud' {} \; && echo "✓ club-vida-y-salud navigation fixed"
+          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/tratamiento-medico-integral' {} \; && echo "✓ tratamiento-medico-integral navigation fixed"
+          find dist -name "*.html" -exec grep -q 'href="/artricenter-cli/contactanos' {} \; && echo "✓ contactanos navigation fixed"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
