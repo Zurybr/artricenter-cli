@@ -49,7 +49,43 @@ function isActive(page: string, currentPage: string): boolean {
   </ul>
 </nav>
 
-<!-- Mobile Navigation Toggle -->
+<!-- Mobile Navigation -->
+<div
+  class="lg:hidden hidden border-t border-gray-200 bg-white"
+  data-mobile-menu
+  aria-hidden="true"
+>
+  <nav class="px-4 py-4 space-y-1" aria-label="Navegación móvil">
+    {items.map(item => (
+      <div>
+        <a
+          href={item.page}
+          class:list={[
+            "block px-3 py-2 text-base font-medium rounded-md",
+            { "bg-blue-50 text-blue-600": item.page === currentPage },
+            { "text-gray-700 hover:bg-gray-100": item.page !== currentPage }
+          ]}
+        >
+          {item.label}
+        </a>
+
+        {item.children && item.children.length > 0 && (
+          <div class="mt-1 ml-4 space-y-1">
+            {item.children.map(child => (
+              <a
+                href={child.page + (child.hash || '')}
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+              >
+                {child.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </nav>
+</div>
+
 <script>
   // Mobile menu toggle logic
   const mobileToggle = document.querySelector('[data-mobile-toggle]');
