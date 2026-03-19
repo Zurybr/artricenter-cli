@@ -1,29 +1,43 @@
-const fs = require('fs');
-const path = require('path');
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { describe, it, expect } from 'vitest';
 
-const pages = [
-  'quienes-somos.html',
-  'especialidades.html',
-  'tratamiento-medico-integral.html',
-  'club-vida-y-salud.html',
-  'contactanos.html'
-];
+describe('SEO structure checks', () => {
+  const pages = [
+    'index.html',
+    'especialidades.html',
+    'tratamiento-medico-integral.html',
+    'club-vida-y-salud.html',
+    'contactanos.html'
+  ];
 
-function assertPattern(content, pattern, message) {
-  if (!pattern.test(content)) {
-    throw new Error(message + ` (pattern: ${pattern})`);
-  }
-}
+  pages.forEach(page => {
+    describe(`${page}`, () => {
+      const html = readFileSync(join(process.cwd(), page), 'utf8');
 
-for (const page of pages) {
-  const html = fs.readFileSync(path.join(process.cwd(), page), 'utf8');
+      it('should have description meta tag', () => {
+        expect(html).toMatch(/<meta[^>]*name="description"/i);
+      });
 
-  assertPattern(html, /<meta[^>]*name="description"/i, `${page}: missing description meta`);
-  assertPattern(html, /<link[^>]*rel="canonical"/i, `${page}: missing canonical`);
-  assertPattern(html, /<meta[^>]*property="og:title"/i, `${page}: missing og:title`);
-  assertPattern(html, /<meta[^>]*name="twitter:card"/i, `${page}: missing twitter:card`);
-  assertPattern(html, /aria-labelledby="/i, `${page}: sections missing aria-labelledby`);
-  assertPattern(html, /Enlaces relacionados/i, `${page}: missing related links section`);
-}
+      it('should have canonical link', () => {
+        expect(html).toMatch(/<link[^>]*rel="canonical"/i);
+      });
 
-console.log('SEO structure checks passed for all core pages.');
+      it('should have og:title meta tag', () => {
+        expect(html).toMatch(/<meta[^>]*property="og:title"/i);
+      });
+
+      it('should have twitter:card meta tag', () => {
+        expect(html).toMatch(/<meta[^>]*name="twitter:card"/i);
+      });
+
+      it('should have aria-labelledby attributes on sections', () => {
+        expect(html).toMatch(/aria-labelledby="/i);
+      });
+
+      it('should have related links section', () => {
+        expect(html).toMatch(/Enlaces relacionados/i);
+      });
+    });
+  });
+});

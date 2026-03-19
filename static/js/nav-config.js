@@ -14,26 +14,26 @@ window.ARTRICENTER_NAV = deepFreeze({
   items: [
     {
       label: "Conoce al equipo",
-      page: "quienes-somos.html",
+      page: "index.html",
       children: [
         {
           label: "Quiénes somos",
-          page: "quienes-somos.html",
+          page: "index.html",
           hash: "#quienes-somos"
         },
         {
           label: "Nuestra historia",
-          page: "quienes-somos.html",
+          page: "index.html",
           hash: "#nuestra-historia"
         },
         {
           label: "Nuestros medicos",
-          page: "quienes-somos.html",
+          page: "index.html",
           hash: "#nuestros-medicos"
         },
         {
           label: "Mision, vision y valores",
-          page: "quienes-somos.html",
+          page: "index.html",
           hash: "#mision-vision-valores"
         }
       ]
