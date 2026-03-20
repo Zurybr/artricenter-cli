@@ -1,0 +1,386 @@
+/**
+ * Content Stylesheet for Artricenter
+ *
+ * Styles for page templates, shortcodes, and CPT displays
+ * Uses BEM methodology: block__element--modifier
+ *
+ * @package Artricenter_Structure
+ */
+
+/* ========================================
+   Container
+   ======================================== */
+
+.artricenter-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--artricenter-spacing-6);
+}
+
+/* ========================================
+   Homepage Block
+   ======================================== */
+
+.artricenter-homepage {
+	min-height: 60vh;
+}
+
+.artricenter-homepage__intro {
+	padding: var(--artricenter-spacing-16) 0;
+	background: linear-gradient(135deg, var(--artricenter-color-blue) 0%, var(--artricenter-color-blue-dark) 100%);
+	color: var(--artricenter-color-white);
+	text-align: center;
+}
+
+.artricenter-homepage__intro h1 {
+	font-size: var(--artricenter-font-size-4xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	margin-bottom: var(--artricenter-spacing-4);
+	color: var(--artricenter-color-white);
+}
+
+.artricenter-homepage__content {
+	font-size: var(--artricenter-font-size-lg);
+	max-width: 48rem;
+	margin: 0 auto;
+	line-height: 1.6;
+}
+
+.artricenter-homepage__history {
+	padding: var(--artricenter-spacing-16) 0;
+	background-color: var(--artricenter-color-gray-50);
+}
+
+.artricenter-homepage__history h2 {
+	font-size: var(--artricenter-font-size-3xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	text-align: center;
+	margin-bottom: var(--artricenter-spacing-8);
+}
+
+.artricenter-homepage__doctors {
+	padding: var(--artricenter-spacing-16) 0;
+}
+
+.artricenter-homepage__doctors h2 {
+	font-size: var(--artricenter-font-size-3xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	text-align: center;
+	margin-bottom: var(--artricenter-spacing-8);
+}
+
+.artricenter-homepage__mission {
+	padding: var(--artricenter-spacing-16) 0;
+	background-color: var(--artricenter-color-gray-50);
+}
+
+.artricenter-homepage__mission h2 {
+	font-size: var(--artricenter-font-size-3xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	text-align: center;
+	margin-bottom: var(--artricenter-spacing-8);
+}
+
+/* ========================================
+   Doctors Grid Block
+   ======================================== */
+
+.artricenter-doctores-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: var(--artricenter-spacing-8);
+	margin-top: var(--artricenter-spacing-8);
+}
+
+.artricenter-doctores-grid__card {
+	background-color: var(--artricenter-color-white);
+	border-radius: var(--artricenter-radius-lg);
+	box-shadow: var(--artricenter-shadow);
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artricenter-doctores-grid__card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--artricenter-shadow-lg);
+}
+
+.artricenter-doctores-grid__image {
+	width: 100%;
+	height: 280px;
+	object-fit: cover;
+	object-position: center top;
+}
+
+.artricenter-doctores-grid__content {
+	padding: var(--artricenter-spacing-6);
+}
+
+.artricenter-doctores-grid__name {
+	font-size: var(--artricenter-font-size-xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	margin-bottom: var(--artricenter-spacing-2);
+}
+
+.artricenter-doctores-grid__specialty {
+	font-size: var(--artricenter-font-size-base);
+	color: var(--artricenter-color-blue);
+	font-weight: var(--artricenter-font-weight-medium);
+	margin-bottom: var(--artricenter-spacing-3);
+}
+
+.artricenter-doctores-grid__location {
+	font-size: var(--artricenter-font-size-sm);
+	color: var(--artricenter-color-gray-600);
+	display: flex;
+	align-items: center;
+	gap: var(--artricenter-spacing-2);
+}
+
+.artricenter-doctores-grid__location::before {
+	content: "📍";
+	font-size: var(--artricenter-font-size-base);
+}
+
+/* ========================================
+   Specialties List Block
+   ======================================== */
+
+.artricenter-especialidades-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: var(--artricenter-spacing-6);
+	margin-top: var(--artricenter-spacing-8);
+}
+
+.artricenter-especialidades-list__item {
+	background-color: var(--artricenter-color-white);
+	border-radius: var(--artricenter-radius-lg);
+	box-shadow: var(--artricenter-shadow);
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.artricenter-especialidades-list__item:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--artricenter-shadow-md);
+}
+
+.artricenter-especialidades-list__icon {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	background: linear-gradient(135deg, var(--artricenter-color-blue-light) 0%, var(--artricenter-color-blue) 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.artricenter-especialidades-list__icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.artricenter-especialidades-list__content {
+	padding: var(--artricenter-spacing-6);
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.artricenter-especialidades-list__title {
+	font-size: var(--artricenter-font-size-xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	margin-bottom: var(--artricenter-spacing-3);
+}
+
+.artricenter-especialidades-list__description {
+	font-size: var(--artricenter-font-size-base);
+	color: var(--artricenter-color-gray-600);
+	line-height: 1.6;
+	flex: 1;
+}
+
+.artricenter-especialidades-list__link {
+	display: inline-block;
+	margin-top: var(--artricenter-spacing-4);
+	color: var(--artricenter-color-blue);
+	text-decoration: none;
+	font-weight: var(--artricenter-font-weight-medium);
+	transition: color 0.2s ease;
+}
+
+.artricenter-especialidades-list__link:hover {
+	color: var(--artricenter-color-blue-dark);
+	text-decoration: underline;
+}
+
+/* ========================================
+   Mission/Vision/Values Cards Block
+   ======================================== */
+
+.artricenter-mission-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--artricenter-spacing-8);
+	margin-top: var(--artricenter-spacing-8);
+}
+
+.artricenter-mission-cards__card {
+	background-color: var(--artricenter-color-white);
+	border-radius: var(--artricenter-radius-lg);
+	box-shadow: var(--artricenter-shadow);
+	padding: var(--artricenter-spacing-8);
+	text-align: center;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.artricenter-mission-cards__card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+}
+
+.artricenter-mission-cards__card--blue::before {
+	background: linear-gradient(90deg, var(--artricenter-color-blue) 0%, var(--artricenter-color-blue-light) 100%);
+}
+
+.artricenter-mission-cards__card--green::before {
+	background: linear-gradient(90deg, var(--artricenter-color-green) 0%, #22c55e 100%);
+}
+
+.artricenter-mission-cards__card--orange::before {
+	background: linear-gradient(90deg, var(--artricenter-color-orange) 0%, #f97316 100%);
+}
+
+.artricenter-mission-cards__card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--artricenter-shadow-lg);
+}
+
+.artricenter-mission-cards__icon {
+	font-size: 3rem;
+	margin-bottom: var(--artricenter-spacing-4);
+}
+
+.artricenter-mission-cards__title {
+	font-size: var(--artricenter-font-size-2xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	color: var(--artricenter-color-gray-800);
+	margin-bottom: var(--artricenter-spacing-4);
+}
+
+.artricenter-mission-cards__content {
+	font-size: var(--artricenter-font-size-base);
+	color: var(--artricenter-color-gray-600);
+	line-height: 1.6;
+}
+
+/* ========================================
+   Generic Page Sections
+   ======================================== */
+
+.artricenter-page {
+	min-height: 60vh;
+}
+
+.artricenter-page__header {
+	padding: var(--artricenter-spacing-16) 0;
+	background: linear-gradient(135deg, var(--artricenter-color-blue) 0%, var(--artricenter-color-blue-dark) 100%);
+	color: var(--artricenter-color-white);
+	text-align: center;
+}
+
+.artricenter-page__header h1 {
+	font-size: var(--artricenter-font-size-4xl);
+	font-weight: var(--artricenter-font-weight-bold);
+	margin: 0;
+	color: var(--artricenter-color-white);
+}
+
+.artricenter-page__content {
+	padding: var(--artricenter-spacing-16) 0;
+}
+
+.artricenter-page__content .artricenter-container {
+	max-width: 48rem;
+}
+
+.artricenter-page__intro {
+	font-size: var(--artricenter-font-size-lg);
+	line-height: 1.6;
+	color: var(--artricenter-color-gray-700);
+	text-align: center;
+	margin-bottom: var(--artricenter-spacing-12);
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) {
+	.artricenter-doctores-grid {
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	}
+
+	.artricenter-especialidades-list {
+		grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+	}
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+	.artricenter-homepage__intro h1 {
+		font-size: var(--artricenter-font-size-5xl);
+	}
+
+	.artricenter-doctores-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.artricenter-especialidades-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.artricenter-mission-cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* ========================================
+   Utilities
+   ======================================== */
+
+.artricenter-section {
+	padding: var(--artricenter-spacing-16) 0;
+}
+
+.artricenter-section--gray {
+	background-color: var(--artricenter-color-gray-50);
+}
+
+.artricenter-text-center {
+	text-align: center;
+}
+
+.artricenter-mb-4 {
+	margin-bottom: var(--artricenter-spacing-4);
+}
+
+.artricenter-mb-8 {
+	margin-bottom: var(--artricenter-spacing-8);
+}

@@ -108,6 +108,15 @@ class Artricenter_Structure_Plugin {
 			'1.0.0',
 			'all'
 		);
+
+		// Enqueue content styles (depends on variables).
+		wp_enqueue_style(
+			'artricenter-structure-content',
+			plugins_url( 'assets/css/content.css', __FILE__ ),
+			array( 'artricenter-structure-variables' ),
+			'1.0.0',
+			'all'
+		);
 	}
 
 	/**
