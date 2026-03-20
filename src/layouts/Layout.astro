@@ -66,7 +66,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Sticky Buttons -->
     <div class="fixed bottom-0 left-0 right-0 z-50 flex justify-between items-end px-3 pb-3 sm:px-4 sm:pb-4 pointer-events-none gap-2">
-      <!-- Dra. Edith Button - Left side -->
+      <!-- Home Button - Left side -->
+      <a
+        href="/"
+        class="pointer-events-auto group"
+        aria-label="Ir al inicio"
+      >
+        <!-- Mobile compact version -->
+        <div class="sm:hidden relative bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white p-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:-translate-y-1">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+          </svg>
+        </div>
+
+        <!-- Desktop full version -->
+        <div class="hidden sm:block relative bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white p-3 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Dra. Edith Button - Center -->
       <a
         href="https://wa.me/525559890607?text=Hola%20Dra.%20Edith,%20tengo%20una%20pregunta%20sobre%20tratamiento%20reumatológico"
         target="_blank"
