@@ -49,6 +49,11 @@ services:
   wpcli:
     image: wordpress:cli-php8.2
     container_name: artricenter_wpcli
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: artricenter
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wpsecret
     volumes:
       - wordpress_data:/var/www/html
     depends_on:
