@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-07 Gap Closure
-last_updated: "2026-03-20T14:27:49.382Z"
+stopped_at: Completed 02-06 GAP CLOSURE Shortcode Registration
+last_updated: "2026-03-20T14:29:19.756Z"
 last_activity: 2026-03-19 — Doctores CPT with secure meta boxes
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 12
-  completed_plans: 12
+  completed_plans: 13
   percent: 45
 ---
 
@@ -59,6 +59,7 @@ Progress: [████░░░░░░] 45%
 | Phase 02-content-engine P05 | 7min | 5 tasks | 7 files |
 | Phase 02-content-engine P02-04 | 8min | 6 tasks | 7 files |
 | Phase 02-content-engine P07 | <1min | 3 tasks | 1 files |
+| Phase 02-content-engine P06 | 1 | 7 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,11 @@ Recent decisions affecting current work:
 - [Phase 02-content-engine]: Individual post_meta keys for simple queries
 - [Phase 02-content-engine]: REQUIREMENTS.md must reflect actual implementation status, not planned work
 - [Phase 02-content-engine]: Evidence-based verification: Requirements marked complete only after verification evidence exists
+- [Phase 02-content-engine]: Shortcode output buffering with ob_start() ensures clean HTML capture
+- [Phase 02-content-engine]: Shortcode attributes use shortcode_atts() for default values and sanitization
+- [Phase 02-content-engine]: WP_Query limits prevent expensive operations on every page load (doctors: 3, specialties: -1)
+- [Phase 02-content-engine]: Template includes use plugin_dir_path(__FILE__) for reliable file paths
+- [Phase 02-content-engine]: Mission cards hardcoded for v1, can be made editable via options page in future
 
 ### Pending Todos
 
@@ -97,6 +103,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T14:27:49.378Z
-Stopped at: Completed 02-07 Gap Closure
+Last session: 2026-03-20T14:29:19.749Z
+Stopped at: Completed 02-06 GAP CLOSURE Shortcode Registration
 Resume file: None
