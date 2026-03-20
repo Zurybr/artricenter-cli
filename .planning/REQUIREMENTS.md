@@ -126,8 +126,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | STRUCT-05 | Phase 1 | Complete |
 | CPT-01 | Phase 2 | Complete |
 | CPT-02 | Phase 2 | Complete |
-| CPT-03 | Phase 2 | Pending |
-| CPT-04 | Phase 2 | Pending |
+| CPT-03 | Phase 2 | Complete |
+| CPT-04 | Phase 2 | Complete |
 | PAGES-01 | Phase 2 | Complete |
 | PAGES-02 | Phase 2 | Complete |
 | PAGES-03 | Phase 2 | Complete |
