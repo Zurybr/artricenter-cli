@@ -19,7 +19,7 @@ const { navItems, currentPage } = Astro.props;
 </div>
 
 <!-- Segundo encabezado: Navegación centrada (STICKY solo en desktop) -->
-<header class="hidden lg:flex bg-white border-b border-gray-200 sticky top-0 z-50 shadow-md">
+<header class="hidden lg:flex bg-white border-b border-gray-200 sticky top-0 z-[60] shadow-md">
   <div class="max-w-7xl mx-auto px-4 w-full">
     <div class="flex items-center justify-center h-16">
       <!-- Navegación desktop centrada -->
@@ -29,7 +29,7 @@ const { navItems, currentPage } = Astro.props;
 </header>
 
 <!-- Header Mobile - STICKY completo -->
-<header class="lg:hidden bg-white border-b border-gray-200 sticky top-0 z-50 shadow-md">
+<header class="lg:hidden bg-white border-b border-gray-200 sticky top-0 z-[60] shadow-md">
   <div class="max-w-7xl mx-auto px-4">
     <!-- Mobile Header -->
     <div class="flex items-center justify-between h-14">
