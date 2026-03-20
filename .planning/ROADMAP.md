@@ -50,7 +50,7 @@ Plans:
   3. WordPress admin can create and manage Sucursales entries with name, address, phone, Google Maps link, and color scheme
   4. Homepage displays Artricenter intro, Nuestra Historia, Nuestros Médicos (3 doctors grid), and Misión/Visión/Valores sections
   5. Especialidades, Tratamiento Médico Integral, Club de Vida y Salud, and Contacto pages display content correctly
-**Plans**: 5 plans in 2 waves
+**Plans**: 7 plans in 3 waves
 
 Plans:
 - [ ] 02-01: Create Doctores Custom Post Type with meta boxes for name, specialty, photo, social links, and location
@@ -58,6 +58,9 @@ Plans:
 - [ ] 02-03: Create Sucursales Custom Post Type with meta boxes for name, address, phone, maps link, and color scheme
 - [ ] 02-04: Create homepage template with Artricenter, Nuestra Historia, Nuestros Médicos, and Misión/Visión/Valores sections
 - [ ] 02-05: Create Especialidades, Tratamiento Médico Integral, Club de Vida y Salud, and Contacto page templates with shortcode integration
+- [ ] 02-06: Recreate missing shortcodes for doctors grid, mission cards, and specialties list
+- [ ] 02-07: Update REQUIREMENTS.md to mark CPT-03 and CPT-04 as complete
+
 
 ### Phase 3: Interactive Features
 **Goal**: Implement contact forms with WhatsApp integration and sticky conversion buttons
