@@ -132,30 +132,54 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
 
       <!-- WhatsApp Button - Right side -->
-      <a
-        href="https://wa.me/525559890607?text=%C2%A1Hola!%20Quiero%20agendar%20una%20consulta%20de%20valoraci%C3%B3n%20sin%20costo%20en%20Artricenter."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group"
-        aria-label="Agendar consulta de valoración sin costo"
-      >
-        <div class="relative">
-          <!-- WhatsApp Icon Button -->
+      <div class="relative group/dropdown">
+        <a
+          href="https://wa.me/525559890607?text=%C2%A1Quiero%20agendar%20una%20consulta%20de%20valoraci%C3%B3n%20sin%20costo!"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block"
+          aria-label="Agendar consulta de valoración sin costo"
+        >
           <div class="relative">
-            <div class="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-0 group-hover:opacity-75 transition-opacity duration-300 animate-pulse"></div>
-            <div class="relative bg-green-500 hover:bg-green-600 w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl hover:shadow-green-500/50 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1">
-              <!-- WhatsApp Icon -->
-              <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
+            <!-- WhatsApp Icon Button -->
+            <div class="relative">
+              <div class="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-0 group-hover/dropdown:opacity-75 transition-opacity duration-300 animate-pulse"></div>
+              <div class="relative bg-green-500 hover:bg-green-600 w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl hover:shadow-green-500/50 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1">
+                <!-- WhatsApp Icon -->
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </div>
+              <!-- Floating badge -->
+              <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
+                1
+              </div>
             </div>
-            <!-- Floating badge -->
-            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
-              1
+          </div>
+        </a>
+
+        <!-- Hover Tooltip -->
+        <div class="absolute bottom-full right-0 mb-3 w-72 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50">
+          <div class="bg-white rounded-2xl shadow-2xl border-2 border-green-500 p-4 text-sm">
+            <h3 class="font-bold text-gray-900 mb-2 text-base">Sucursales Ciudad de México, México</h3>
+            <div class="space-y-2 text-gray-700 mb-3">
+              <p class="font-semibold text-green-600">• La Raza • Atizapán • Viaducto</p>
+              <p class="text-xs">Martes a sábado de 08:00 a 18:30 horas</p>
+              <p class="font-semibold text-green-600 mt-2">Centro de atención: 55 1346 4000</p>
+              <p class="text-xs">Lunes a viernes de 07:00 a 19:00 horas</p>
+              <p class="text-xs">Sábados de 07:00 a 18:00 horas</p>
+              <p class="font-bold text-green-600 mt-2">55 5989 0607</p>
+            </div>
+            <div class="border-t pt-2">
+              <p class="text-xs text-gray-600 font-semibold">¡Agenda por WhatsApp!</p>
+              <p class="text-xs text-gray-500">Aviso de Privacidad</p>
+            </div>
+            <div class="mt-2 pt-2 border-t">
+              <p class="text-xs text-green-600 font-bold">¡Agenda aquí una consulta de valoración sin costo!</p>
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
 
     <script>
