@@ -25,9 +25,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **PAGES-01**: Homepage displays sections: Artricenter (intro), Nuestra Historia, Nuestros Médicos (3 doctors grid), Misión/Visión/Valores cards
 - [x] **PAGES-02**: Especialidades page lists medical specialties (artrosis, artritis reumatoide, fibromialgia, espondilitis anquilosante, reumatismos de partes blandas)
-- [ ] **PAGES-03**: Tratamiento Médico Integral page describes PAIPER program with structured treatment steps
-- [ ] **PAGES-04**: Club de Vida y Salud page displays membership program information
-- [ ] **PAGES-05**: Contacto page displays contact form and clinic information
+- [x] **PAGES-03**: Tratamiento Médico Integral page describes PAIPER program with structured treatment steps
+- [x] **PAGES-04**: Club de Vida y Salud page displays membership program information
+- [x] **PAGES-05**: Contacto page displays contact form and clinic information
 
 ### Custom Post Types
 
@@ -130,9 +130,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CPT-04 | Phase 2 | Pending |
 | PAGES-01 | Phase 2 | Complete |
 | PAGES-02 | Phase 2 | Complete |
-| PAGES-03 | Phase 2 | Pending |
-| PAGES-04 | Phase 2 | Pending |
-| PAGES-05 | Phase 2 | Pending |
+| PAGES-03 | Phase 2 | Complete |
+| PAGES-04 | Phase 2 | Complete |
+| PAGES-05 | Phase 2 | Complete |
 | FORM-01 | Phase 3 | Pending |
 | FORM-02 | Phase 3 | Pending |
 | FORM-03 | Phase 3 | Pending |
