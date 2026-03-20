@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -35,14 +37,19 @@ jobs:
           echo "Checking fixed paths..."
           grep -r 'src="/artricenter-cli/assets/' dist/index.html && echo "✓ Asset paths fixed in index.html"
           grep -r 'href="/artricenter-cli/especialidades' dist/index.html && echo "✓ Navigation paths fixed in index.html"
-          echo "All files in dist:"
-          find dist -type f -name "*.html" | head -10
-          echo "Verifying file contents:"
-          head -20 dist/index.html | grep -o 'src="/[^"]*"' | head -3
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
