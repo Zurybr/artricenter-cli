@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Completed 02-01 Doctores CPT implementation
-last_updated: "2026-03-20T00:16:00.000Z"
+status: executing
+stopped_at: Completed 02-05 Shortcodes implementation
+last_updated: "2026-03-20T00:39:12.794Z"
 last_activity: 2026-03-19 — Doctores CPT with secure meta boxes
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 10
-  completed_plans: 8
+  completed_plans: 10
   percent: 45
 ---
 
@@ -55,6 +55,8 @@ Progress: [████░░░░░░] 45%
 | Phase 01-foundation P04 | 2 | 3 tasks | 3 files |
 | Phase 01-foundation P05 | 1 | 3 tasks | 4 files |
 | Phase 02-content-engine P02 | 4min | 2 tasks | 4 files |
+| Phase 02-content-engine P01 | 15min | 3 tasks | 3 files |
+| Phase 02-content-engine P05 | 7min | 5 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -76,6 +78,10 @@ Recent decisions affecting current work:
 - [Phase 02-content-engine]: Use WordPress built-in fields (title, editor, featured image) instead of custom meta fields for Especialidades CPT simplicity
 - [Phase 02-content-engine]: Unique rewrite slug especialidad-artricenter prevents permalink conflicts with other plugins
 - [Phase 02-content-engine]: PSR-4 autoloading pattern from Phase 1 ensures consistency across artricenter-content plugin
+- [Phase 02-content-engine]: Direct class loading instead of PSR-4 autoloader to avoid WordPress file naming conflicts
+- [Phase 02-content-engine]: Meta boxes grouped by context (Basic Info, Social Media) per user decision
+- [Phase 02-content-engine]: Unique rewrite slug 'doctor-artricenter' prevents permalink conflicts
+- [Phase 02-content-engine]: Individual post_meta keys for simple queries
 
 ### Pending Todos
 
@@ -87,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T00:05:54.850Z
-Stopped at: Completed 02-02 Especialidades CPT implementation
+Last session: 2026-03-20T00:39:12.791Z
+Stopped at: Completed 02-05 Shortcodes implementation
 Resume file: None
