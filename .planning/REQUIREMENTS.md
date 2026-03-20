@@ -33,7 +33,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **CPT-01**: WordPress admin can manage Doctores Custom Post Type with fields: name, specialty, photo, social media links (Facebook, Twitter, LinkedIn), location/sucursal
 - [x] **CPT-02**: WordPress admin can manage Especialidades Custom Post Type with fields: name, description, icon/image
-- [ ] **CPT-03**: WordPress admin can manage Sucursales Custom Post Type with fields: name, address, phone, Google Maps link, color scheme (blue/green/orange)
+- [x] **CPT-03**: WordPress admin can manage Sucursales Custom Post Type with fields: name, address, phone, Google Maps link, color scheme (blue/green/orange)
 - [ ] **CPT-04**: Custom Post Types use unique rewrite slugs (e.g., `doctor-artricenter`) to avoid permalink conflicts with pages
 
 ### Interactive Features
