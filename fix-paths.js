@@ -19,6 +19,10 @@ function fixPaths(dir) {
       content = content.replace(/src="\/assets\//g, 'src="/artricenter-cli/assets/');
       content = content.replace(/href="\/assets\//g, 'href="/artricenter-cli/assets/');
 
+      // Fix home link ("Quienes Somos") and anchor links to home
+      content = content.replace(/href="\/"/g, 'href="/artricenter-cli/"');
+      content = content.replace(/href="\/#/g, 'href="/artricenter-cli/#');
+
       // Fix internal navigation links - specific pages
       const pages = ['especialidades', 'club-vida-y-salud', 'tratamiento-medico-integral', 'contactanos'];
       pages.forEach(page => {
